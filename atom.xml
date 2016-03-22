@@ -66,9 +66,9 @@
     <link href="http://yoursite.com/2015/03/30/Breaker%E5%9B%BA%E4%BB%B63/"/>
     <id>http://yoursite.com/2015/03/30/Breaker固件3/</id>
     <published>2015-03-30T10:02:18.000Z</published>
-    <updated>2016-03-20T10:12:00.000Z</updated>
+    <updated>2016-03-22T13:06:18.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;基于路由器的博客：（三）域名、动态DNS设置&quot;&gt;&lt;a href=&quot;#基于路由器的博客：（三）域名、动态DNS设置&quot; class=&quot;headerlink&quot; title=&quot;基于路由器的博客：（三）域名、动态DNS设置&quot;&gt;&lt;/a&gt;基于路由器的博客：（三）域名、动态DNS设置&lt;/h1&gt;&lt;p&gt;安装好博客之后就可以开始通过192.168.1.1:82访问博客了，但是如何让外网也可以访问网站呢？&lt;br&gt;这时候就需要绑定域名和动态DNS了。&lt;/p&gt;
+    <content type="html">&lt;p&gt;安装好博客之后就可以开始通过192.168.1.1:82访问博客了，但是如何让外网也可以访问网站呢？&lt;br&gt;这时候就需要绑定域名和动态DNS了。&lt;/p&gt;
 &lt;h2 id=&quot;注册专属的域名&quot;&gt;&lt;a href=&quot;#注册专属的域名&quot; class=&quot;headerlink&quot; title=&quot;注册专属的域名&quot;&gt;&lt;/a&gt;注册专属的域名&lt;/h2&gt;&lt;p&gt;（免费的二级域名有很多，比如f3322、花生壳等，这里选用花生壳）&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/5e999b55gw1ewi5d6mbhhj20p70cg75o.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;DNS解析&quot;&gt;&lt;a href=&quot;#DNS解析&quot; class=&quot;headerlink&quot; title=&quot;DNS解析&quot;&gt;&lt;/a&gt;DNS解析&lt;/h2&gt;&lt;p&gt;可以先手动填写本机的外网ip到记录值处，测试能否ping成功。&lt;br&gt;然后进入路由器动态dns管理界面，将刚刚注册的域名以及用户密码如下图填写。&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/5e999b55jw1ewi5hesombj20iw0kzach.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;端口设置&quot;&gt;&lt;a href=&quot;#端口设置&quot; class=&quot;headerlink&quot; title=&quot;端口设置&quot;&gt;&lt;/a&gt;端口设置&lt;/h2&gt;&lt;p&gt;进入路由器-网络-防火墙&lt;br&gt;设置入站数据为接受&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/5e999b55gw1ewi5kmj1q8j20l90k2jsc.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
@@ -77,9 +77,12 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;基于路由器的博客：（三）域名、动态DNS设置&quot;&gt;&lt;a href=&quot;#基于路由器的博客：（三）域名、动态DNS设置&quot; class=&quot;headerlink&quot; title=&quot;基于路由器的博客：（三）域名、动态DNS设置&quot;&gt;&lt;/a&gt;基于路由器的博客：（三）域名、动态DNS
+      &lt;p&gt;安装好博客之后就可以开始通过192.168.1.1:82访问博客了，但是如何让外网也可以访问网站呢？&lt;br&gt;这时候就需要绑定域名和动态DNS了。&lt;/p&gt;
+&lt;h2 id=&quot;注册专属的域名&quot;&gt;&lt;a href=&quot;#注册专属的域名&quot; class=&quot;headerlink&quot; title
     
     </summary>
+    
+      <category term="硬件" scheme="http://yoursite.com/categories/%E7%A1%AC%E4%BB%B6/"/>
     
     
       <category term="Hardware" scheme="http://yoursite.com/tags/Hardware/"/>
@@ -93,9 +96,9 @@
     <link href="http://yoursite.com/2015/03/25/Breaker%E5%9B%BA%E4%BB%B62/"/>
     <id>http://yoursite.com/2015/03/25/Breaker固件2/</id>
     <published>2015-03-25T09:56:25.000Z</published>
-    <updated>2016-03-20T11:29:36.000Z</updated>
+    <updated>2016-03-22T13:06:09.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;基于路由器的博客：（二）搭建nginx-php-mysql环境&quot;&gt;&lt;a href=&quot;#基于路由器的博客：（二）搭建nginx-php-mysql环境&quot; class=&quot;headerlink&quot; title=&quot;基于路由器的博客：（二）搭建nginx+php+mysql环境&quot;&gt;&lt;/a&gt;基于路由器的博客：（二）搭建nginx+php+mysql环境&lt;/h1&gt;&lt;p&gt;上一章已经把HG255D的系统刷为OpenWrt，将环境搭建起来就可以上传博客的安装包了&lt;/p&gt;
+    <content type="html">&lt;p&gt;上一章已经把HG255D的系统刷为OpenWrt，将环境搭建起来就可以上传博客的安装包了&lt;/p&gt;
 &lt;h2 id=&quot;安装软件&quot;&gt;&lt;a href=&quot;#安装软件&quot; class=&quot;headerlink&quot; title=&quot;安装软件&quot;&gt;&lt;/a&gt;安装软件&lt;/h2&gt;&lt;p&gt;（我的固件已经将nginx、php编译进去了，这一步只需安装mysql、spawn和shadow相关的软件）&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;opkg update&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;opkg install block-mount #自动挂载U盘&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;opkg install mysql-server &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;opkg install spawn-fcgi zoneinfo-core zoneinfo-asia&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;opkg install shadow-groupadd shadow-useradd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;创建账户、数据库文件夹等&quot;&gt;&lt;a href=&quot;#创建账户、数据库文件夹等&quot; class=&quot;headerlink&quot; title=&quot;创建账户、数据库文件夹等&quot;&gt;&lt;/a&gt;创建账户、数据库文件夹等&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;groupadd www&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;useradd -g www www&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mkdir /mnt/sda1/web #确保挂载了U盘&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;chown -R www:www /mnt/sda1/web&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mkdir -p /mnt/sda1/data /mnt/sda1/data/mysql /mnt/sda1/data/tmp&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -124,9 +127,12 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;基于路由器的博客：（二）搭建nginx-php-mysql环境&quot;&gt;&lt;a href=&quot;#基于路由器的博客：（二）搭建nginx-php-mysql环境&quot; class=&quot;headerlink&quot; title=&quot;基于路由器的博客：（二）搭建nginx+php+mysql环
+      &lt;p&gt;上一章已经把HG255D的系统刷为OpenWrt，将环境搭建起来就可以上传博客的安装包了&lt;/p&gt;
+&lt;h2 id=&quot;安装软件&quot;&gt;&lt;a href=&quot;#安装软件&quot; class=&quot;headerlink&quot; title=&quot;安装软件&quot;&gt;&lt;/a&gt;安装软件&lt;/h2&gt;&lt;p&gt;（我的固件已经将ng
     
     </summary>
+    
+      <category term="硬件" scheme="http://yoursite.com/categories/%E7%A1%AC%E4%BB%B6/"/>
     
     
       <category term="Hardware" scheme="http://yoursite.com/tags/Hardware/"/>
@@ -140,9 +146,9 @@
     <link href="http://yoursite.com/2015/03/20/Breaker%E5%9B%BA%E4%BB%B6/"/>
     <id>http://yoursite.com/2015/03/20/Breaker固件/</id>
     <published>2015-03-20T09:48:02.000Z</published>
-    <updated>2016-03-20T11:46:02.000Z</updated>
+    <updated>2016-03-22T13:05:33.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;基于路由器的博客：（一）编译OpenWrt-Barrier-Breaker固件&quot;&gt;&lt;a href=&quot;#基于路由器的博客：（一）编译OpenWrt-Barrier-Breaker固件&quot; class=&quot;headerlink&quot; title=&quot;基于路由器的博客：（一）编译OpenWrt Barrier Breaker固件&quot;&gt;&lt;/a&gt;基于路由器的博客：（一）编译OpenWrt Barrier Breaker固件&lt;/h1&gt;&lt;p&gt;标签：Hardware&lt;/p&gt;
+    <content type="html">&lt;p&gt;标签：Hardware&lt;/p&gt;
 &lt;h2 id=&quot;编译环境&quot;&gt;&lt;a href=&quot;#编译环境&quot; class=&quot;headerlink&quot; title=&quot;编译环境&quot;&gt;&lt;/a&gt;编译环境&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Ubuntu 14.10 64位虚拟机&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;安装配置编译所需要的软件包&quot;&gt;&lt;a href=&quot;#安装配置编译所需要的软件包&quot; class=&quot;headerlink&quot; title=&quot;安装配置编译所需要的软件包&quot;&gt;&lt;/a&gt;安装配置编译所需要的软件包&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get update&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk gcc-multilib flex git-core gettext&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;下载OpenWrt-Barrier-Breaker源码，svn-git&quot;&gt;&lt;a href=&quot;#下载OpenWrt-Barrier-Breaker源码，svn-git&quot; class=&quot;headerlink&quot; title=&quot;下载OpenWrt Barrier Breaker源码，svn/git&quot;&gt;&lt;/a&gt;下载OpenWrt Barrier Breaker源码，svn/git&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;    svn co svn://svn.openwrt.org/openwrt/branches/barrier_breaker&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;or&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    git clone git://git.openwrt.org/14.07/openwrt.git&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -155,7 +161,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;基于路由器的博客：（一）编译OpenWrt-Barrier-Breaker固件&quot;&gt;&lt;a href=&quot;#基于路由器的博客：（一）编译OpenWrt-Barrier-Breaker固件&quot; class=&quot;headerlink&quot; title=&quot;基于路由器的博客：（一）编译
+      &lt;p&gt;标签：Hardware&lt;/p&gt;
+&lt;h2 id=&quot;编译环境&quot;&gt;&lt;a href=&quot;#编译环境&quot; class=&quot;headerlink&quot; title=&quot;编译环境&quot;&gt;&lt;/a&gt;编译环境&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
     
     </summary>
     

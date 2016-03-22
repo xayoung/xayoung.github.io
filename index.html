@@ -98,7 +98,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?ccaab5c9c6545e09a64328d6fc782d7a";
+      hm.src = "//hm.baidu.com/hm.js?4305920195895ba6d11d1da98f584752";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -398,6 +398,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/硬件/" itemprop="url" rel="index">
+                    <span itemprop="name">硬件</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -428,9 +447,9 @@
       
         
           
-          基于路由器的博客：（三）域名、动态DNS设置安装好博客之后就可以开始通过192.168.1.1:82访问博客了，但是如何让外网也可以访问网站呢？这时候就需要绑定域名和动态DNS了。
+          安装好博客之后就可以开始通过192.168.1.1:82访问博客了，但是如何让外网也可以访问网站呢？这时候就需要绑定域名和动态DNS了。
 注册专属的域名（免费的二级域名有很多，比如f3322、花生壳等，这里选用花生壳）
-DNS解析可以先手动填写本机的外网i
+DNS解析可以先手动填写本机的外网ip到记录值处，测试能否ping成功。然后进入
           ...
 
           <div class="post-more-link text-center">
@@ -501,6 +520,25 @@ DNS解析可以先手动填写本机的外网i
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/硬件/" itemprop="url" rel="index">
+                    <span itemprop="name">硬件</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -531,8 +569,8 @@ DNS解析可以先手动填写本机的外网i
       
         
           
-          基于路由器的博客：（二）搭建nginx+php+mysql环境上一章已经把HG255D的系统刷为OpenWrt，将环境搭建起来就可以上传博客的安装包了
-安装软件（我的固件已经将nginx、php编译进去了，这一步只需安装mysql、spawn和shadow相关的软件）12345opkg update
+          上一章已经把HG255D的系统刷为OpenWrt，将环境搭建起来就可以上传博客的安装包了
+安装软件（我的固件已经将nginx、php编译进去了，这一步只需安装mysql、spawn和shadow相关的软件）12345opkg updateopkg install block-mount #自动挂载U
           ...
 
           <div class="post-more-link text-center">
@@ -652,9 +690,9 @@ DNS解析可以先手动填写本机的外网i
       
         
           
-          基于路由器的博客：（一）编译OpenWrt Barrier Breaker固件标签：Hardware
+          标签：Hardware
 编译环境1Ubuntu 14.10 64位虚拟机
-安装配置编译所需要的软件包12sudo apt-get updatesudo apt-get install build-essential sub
+安装配置编译所需要的软件包12sudo apt-get updatesudo apt-get install build-essential subversion libncurses5-dev zlib1g-dev gawk
           ...
 
           <div class="post-more-link text-center">
