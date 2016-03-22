@@ -62,6 +62,69 @@
   </entry>
   
   <entry>
+    <title>UINavigationController在pushViewController时出现的卡顿问题</title>
+    <link href="http://yoursite.com/2015/10/20/UINavigationController%E5%9C%A8pushViewController%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/</id>
+    <published>2015-10-20T12:54:29.000Z</published>
+    <updated>2016-03-22T14:06:28.000Z</updated>
+    
+    <content type="html">&lt;p&gt;标签：iOS&lt;/p&gt;
+&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h2&gt;&lt;p&gt;因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;解决&quot;&gt;&lt;a href=&quot;#解决&quot; class=&quot;headerlink&quot; title=&quot;解决&quot;&gt;&lt;/a&gt;解决&lt;/h2&gt;&lt;p&gt;stroybord创建的控制器，直接设置背景色为白色就解决了。或者在viewdidload中设置&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;self.view.backgroundColor = [UIColor whiteColor];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;标签：iOS&lt;/p&gt;
+&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;调用UINavigationController的pushViewController:animated:执行入
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS UITableviewWrapperView偏移问题</title>
+    <link href="http://yoursite.com/2015/09/22/iOS%20UITableviewWrapperView%E5%81%8F%E7%A7%BB%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2015/09/22/iOS UITableviewWrapperView偏移问题/</id>
+    <published>2015-09-22T13:21:05.000Z</published>
+    <updated>2016-03-22T13:44:28.000Z</updated>
+    
+    <content type="html">&lt;p&gt;标签：iOS&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;在UInavigationController下面使用tableView，使用Autolayout进行约束的时候，发现经常多出或者少64。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot; title=&quot;解决方案&quot;&gt;&lt;/a&gt;解决方案&lt;/h2&gt;&lt;p&gt;查了一下相关的文档和stackoverflow类似问题。可以通过设置视图控制器的这个属性：automaticallyAdjustsScrollViewInsets&lt;br&gt;apple的解释：&lt;/p&gt;
+&lt;table&gt;&lt;br&gt;&lt;tr&gt;&lt;th&gt;A Boolean value that indicates whether the view controller should automatically adjust its scroll view insets.&lt;/th&gt;&lt;/tr&gt;&lt;br&gt;&lt;tr&gt;&lt;th&gt;The default value of this property is YES, which allows the view controller to adjust its scroll view insets in response to the screen areas consumed by the status bar, navigation bar, and toolbar or tab bar. Set to NO if you want to manage scroll view inset adjustments yourself, such as when there is more than one scroll view in the view hierarchy.&lt;/th&gt;&lt;/tr&gt;&lt;br&gt;&lt;/table&gt;
+
+&lt;p&gt;iOS7以下系统，UITableViewCell.superview就是UITableView，但在IOS7中，cell上面还多了一个UITableViewWrapperView，不做iOS7以下的兼容，设置一下这个属性就解决了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/5e999b55gw1f25yxsc80xj20r50il40j.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;标签：iOS&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;在UInavigationController下面使用tableView，使用Autolayout进行
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>基于路由器的博客：（三）域名、动态DNS设置</title>
     <link href="http://yoursite.com/2015/03/30/Breaker%E5%9B%BA%E4%BB%B63/"/>
     <id>http://yoursite.com/2015/03/30/Breaker固件3/</id>

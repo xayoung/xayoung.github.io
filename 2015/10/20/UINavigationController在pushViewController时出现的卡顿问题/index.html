@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hardware,Kindle,Read," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -59,30 +59,36 @@
 
 
 
-<meta name="description" content="#Mac上通过部署KindleEar订阅RSS自动推送到Kindle引言每天上下班地铁上的闲暇时间，刚好通过阅读可以填补这一空白。所以最近当即入手了Kindle 499款。众所周知，Kindle的邮件推送是这个产品很亮眼的一个功能，日常除了亚马逊购买电子书、拷贝pdf之外，还希望通过它阅读一些时效性的新闻或者自媒体信息。
+<meta name="description" content="标签：iOS
+问题调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象
 
-第三方网站Kindle4Rss (http://kindle4rss.co">
+
+原因因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。
+
+解决stroybord">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac上通过部署KindleEar订阅RSS自动推送到Kindle">
-<meta property="og:url" content="http://yoursite.com/2016/03/20/Mac上通过部署KindleEar订阅RSS自动推送到Kindle/index.html">
+<meta property="og:title" content="UINavigationController在pushViewController时出现的卡顿问题">
+<meta property="og:url" content="http://yoursite.com/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/index.html">
 <meta property="og:site_name" content="Coder X">
-<meta property="og:description" content="#Mac上通过部署KindleEar订阅RSS自动推送到Kindle引言每天上下班地铁上的闲暇时间，刚好通过阅读可以填补这一空白。所以最近当即入手了Kindle 499款。众所周知，Kindle的邮件推送是这个产品很亮眼的一个功能，日常除了亚马逊购买电子书、拷贝pdf之外，还希望通过它阅读一些时效性的新闻或者自媒体信息。
+<meta property="og:description" content="标签：iOS
+问题调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象
 
-第三方网站Kindle4Rss (http://kindle4rss.co">
-<meta property="og:image" content="http://ptbsare.org/img/gae%E4%B8%8A%E6%90%AD%E5%BB%BAkindleear%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8rss%E6%8A%93%E5%8F%96%E8%AE%A2%E9%98%85/0.2.png">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f23nu3kbg1j20qy0hwtc4.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/5e999b55gw1f23nnsauirj20vn0f90v1.jpg">
-<meta property="og:image" content="http://ww4.sinaimg.cn/large/5e999b55gw1f23n1sw9jaj20nm0bs0vu.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f23nuuvx57j20ni0kmwir.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/5e999b55gw1f23nyumtyuj20go0m8wht.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f23nzi90alj20go0m8jus.jpg">
-<meta property="og:updated_time" content="2016-03-20T14:12:31.000Z">
+
+原因因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。
+
+解决stroybord">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif">
+<meta property="og:updated_time" content="2016-03-22T14:06:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac上通过部署KindleEar订阅RSS自动推送到Kindle">
-<meta name="twitter:description" content="#Mac上通过部署KindleEar订阅RSS自动推送到Kindle引言每天上下班地铁上的闲暇时间，刚好通过阅读可以填补这一空白。所以最近当即入手了Kindle 499款。众所周知，Kindle的邮件推送是这个产品很亮眼的一个功能，日常除了亚马逊购买电子书、拷贝pdf之外，还希望通过它阅读一些时效性的新闻或者自媒体信息。
+<meta name="twitter:title" content="UINavigationController在pushViewController时出现的卡顿问题">
+<meta name="twitter:description" content="标签：iOS
+问题调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象
 
-第三方网站Kindle4Rss (http://kindle4rss.co">
-<meta name="twitter:image" content="http://ptbsare.org/img/gae%E4%B8%8A%E6%90%AD%E5%BB%BAkindleear%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8rss%E6%8A%93%E5%8F%96%E8%AE%A2%E9%98%85/0.2.png">
+
+原因因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。
+
+解决stroybord">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif">
 
 
 
@@ -100,7 +106,7 @@
   };
 </script>
 
-  <title> Mac上通过部署KindleEar订阅RSS自动推送到Kindle | Coder X </title>
+  <title> UINavigationController在pushViewController时出现的卡顿问题 | Coder X </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -270,7 +276,7 @@
             
             
               
-                Mac上通过部署KindleEar订阅RSS自动推送到Kindle
+                UINavigationController在pushViewController时出现的卡顿问题
               
             
           </h1>
@@ -282,8 +288,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-20T21:53:06+08:00" content="2016-03-20">
-              2016-03-20
+            <time itemprop="dateCreated" datetime="2015-10-20T20:54:29+08:00" content="2015-10-20">
+              2015-10-20
             </time>
           </span>
 
@@ -296,8 +302,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Read/" itemprop="url" rel="index">
-                    <span itemprop="name">Read</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -312,8 +318,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/20/Mac上通过部署KindleEar订阅RSS自动推送到Kindle/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/20/Mac上通过部署KindleEar订阅RSS自动推送到Kindle/" itemprop="commentsCount"></span>
+                <a href="/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -335,26 +341,13 @@
       
 
       
-        <h2 id="Mac上通过部署KindleEar订阅RSS自动推送到Kindle"><a href="#Mac上通过部署KindleEar订阅RSS自动推送到Kindle" class="headerlink" title="#Mac上通过部署KindleEar订阅RSS自动推送到Kindle"></a>#Mac上通过部署KindleEar订阅RSS自动推送到Kindle</h2><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>每天上下班地铁上的闲暇时间，刚好通过阅读可以填补这一空白。所以最近当即入手了<code>Kindle</code> 499款。众所周知，<code>Kindle</code>的邮件推送是这个产品很亮眼的一个功能，日常除了亚马逊购买电子书、拷贝pdf之外，还希望通过它阅读一些时效性的新闻或者自媒体信息。</p>
+        <p>标签：iOS</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象</p>
+<p><img src="http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif" alt="此处输入图片的描述"></p>
 <hr>
-<h2 id="第三方网站"><a href="#第三方网站" class="headerlink" title="第三方网站"></a>第三方网站</h2><p>Kindle4Rss (<a href="http://kindle4rss.com/" target="_blank" rel="external">http://kindle4rss.com/</a>)<br>经过几天的搜索，发现<code>Kindle4Rss</code>算是比较容易上手的，试用了两天发现效果还行，但是免费用户有一定的限制（免费用户的限制是12个订阅RSS，总共2mb的图片，需手动投递）。<img src="http://ptbsare.org/img/gae%E4%B8%8A%E6%90%AD%E5%BB%BAkindleear%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8rss%E6%8A%93%E5%8F%96%E8%AE%A2%E9%98%85/0.2.png" alt="此处输入图片的描述"></p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。</p>
 <hr>
-<h2 id="GAE搭建KindlEar"><a href="#GAE搭建KindlEar" class="headerlink" title="GAE搭建KindlEar"></a>GAE搭建KindlEar</h2><p>为了实现程序员“懒癌”思维作祟，发现有前辈已经写了一个可以部署到<code>GAE（Google App Engine）</code>上面运行的一个<code>APP</code>，通过<code>python</code>实现网站自动抓取RSS并且自动推送了。它就是<code>KindleEar</code>，目前源代码托管在<a href="https://github.com/cdhigh/KindleEar" target="_blank" rel="external">Github</a>上。<br><img src="http://ww2.sinaimg.cn/large/5e999b55gw1f23nu3kbg1j20qy0hwtc4.jpg" alt="此处输入图片的描述"></p>
-<hr>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>必备条件：<br>Gmail/Python(2.7)/科学上网<br>由于我的是Mac，自带Python环境，直接跳过</p>
-<h2 id="新建APP"><a href="#新建APP" class="headerlink" title="新建APP"></a>新建APP</h2><p>在<a href="https://appengine.google.com/" target="_blank" rel="external">Google App Engine</a>上面新建一个APP，APP名字自定，记下APP的ID。<br><img src="http://ww4.sinaimg.cn/large/5e999b55gw1f23nnsauirj20vn0f90v1.jpg" alt="此处输入图片的描述"></p>
-<h2 id="安装Google-App-Engine-for-Python"><a href="#安装Google-App-Engine-for-Python" class="headerlink" title="安装Google App Engine for Python"></a>安装<a href="https://cloud.google.com/appengine/downloads" target="_blank" rel="external">Google App Engine for Python</a></h2><p>下载app，拖到 Applications 文件夹里即可，必须运行一次来安装必要的 App Engine 部署文件。会提示创建一组 symlinks，建议创建以方便未来调用指令。</p>
-<h2 id="KindleEar源码"><a href="#KindleEar源码" class="headerlink" title="KindleEar源码"></a>KindleEar源码</h2><p>直接clone</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/cdhigh/KindleEar.git</span><br></pre></td></tr></table></figure>
-<p>解压到任意目录</p>
-<hr>
-<h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><p>打开以下三个文件：app.yaml，module-worker.yaml，config.py。<br>两个 yaml 文件只需要修改第一行，将默认的 kindleear 改为你的 Application ID 即可。<br>config.py 需要修改两个地方：一个是 SRC_EMAIL，请将默认的赋值改为你自己的 gmail 地址；另一个是 DOMAIN，把默认的 kindleear 改为你的 Application ID。软件配置修改完毕。</p>
-<hr>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>此处根据前辈们的经验，最好不要使用<code>Google App Engine Launcher</code>上传部署，直接命令行上传。<br>cd到源码目录，执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python /usr/local/bin/appcfg.py update app.yaml module-worker.yaml</span><br><span class="line">python /usr/local/bin/appcfg.py update .</span><br></pre></td></tr></table></figure>
-<p>上传log无错误后，打开<code>http://Application ID.appspot.com/</code>测试是否能正常访问，根据页面提示填写亚马逊邮件账号，并将我们的Gmail账号加入信任列表。<br><img src="http://ww4.sinaimg.cn/large/5e999b55gw1f23n1sw9jaj20nm0bs0vu.jpg" alt="此处输入图片的描述"><br><img src="http://ww2.sinaimg.cn/large/5e999b55gw1f23nuuvx57j20ni0kmwir.jpg" alt="此处输入图片的描述"><br>再去设置中点击“现在投递”测试kindle能否正常收到推送邮件<br><img src="http://ww3.sinaimg.cn/large/5e999b55gw1f23nyumtyuj20go0m8wht.jpg" alt="此处输入图片的描述"><br><img src="http://ww2.sinaimg.cn/large/5e999b55gw1f23nzi90alj20go0m8jus.jpg" alt="此处输入图片的描述"></p>
-<hr>
-<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>如果对域名不满意，还可以通过DNS转发实现绑定个人域名，导入自己的rss源，还可以自己编写脚本获取图片排版更精致的文章。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>stroybord创建的控制器，直接设置背景色为白色就解决了。或者在viewdidload中设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.view.backgroundColor = [UIColor whiteColor];</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -369,11 +362,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hardware/" rel="tag">#Hardware</a>
-          
-            <a href="/tags/Kindle/" rel="tag">#Kindle</a>
-          
-            <a href="/tags/Read/" rel="tag">#Read</a>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
         </div>
       
@@ -382,13 +371,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/" rel="next" title="UINavigationController在pushViewController时出现的卡顿问题">
-                <i class="fa fa-chevron-left"></i> UINavigationController在pushViewController时出现的卡顿问题
+              <a href="/2015/09/22/iOS UITableviewWrapperView偏移问题/" rel="next" title="iOS UITableviewWrapperView偏移问题">
+                <i class="fa fa-chevron-left"></i> iOS UITableviewWrapperView偏移问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/20/Mac上通过部署KindleEar订阅RSS自动推送到Kindle/" rel="prev" title="Mac上通过部署KindleEar订阅RSS自动推送到Kindle">
+                Mac上通过部署KindleEar订阅RSS自动推送到Kindle <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -414,8 +407,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/20/Mac上通过部署KindleEar订阅RSS自动推送到Kindle/"
-           data-title="Mac上通过部署KindleEar订阅RSS自动推送到Kindle" data-url="http://yoursite.com/2016/03/20/Mac上通过部署KindleEar订阅RSS自动推送到Kindle/">
+      <div class="ds-thread" data-thread-key="2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/"
+           data-title="UINavigationController在pushViewController时出现的卡顿问题" data-url="http://yoursite.com/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/">
       </div>
     
   </div>
@@ -536,7 +529,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac上通过部署KindleEar订阅RSS自动推送到Kindle"><span class="nav-number">1.</span> <span class="nav-text">#Mac上通过部署KindleEar订阅RSS自动推送到Kindle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">2.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方网站"><span class="nav-number">3.</span> <span class="nav-text">第三方网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAE搭建KindlEar"><span class="nav-number">4.</span> <span class="nav-text">GAE搭建KindlEar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">5.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建APP"><span class="nav-number">6.</span> <span class="nav-text">新建APP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Google-App-Engine-for-Python"><span class="nav-number">7.</span> <span class="nav-text">安装Google App Engine for Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KindleEar源码"><span class="nav-number">8.</span> <span class="nav-text">KindleEar源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件配置"><span class="nav-number">9.</span> <span class="nav-text">软件配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署"><span class="nav-number">10.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拓展"><span class="nav-number">11.</span> <span class="nav-text">拓展</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原因"><span class="nav-number">2.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">3.</span> <span class="nav-text">解决</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
