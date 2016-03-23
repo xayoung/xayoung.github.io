@@ -66,7 +66,7 @@
     <link href="http://yoursite.com/2015/10/20/UINavigationController%E5%9C%A8pushViewController%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/</id>
     <published>2015-10-20T12:54:29.000Z</published>
-    <updated>2016-03-22T14:06:28.000Z</updated>
+    <updated>2016-03-23T14:21:11.000Z</updated>
     
     <content type="html">&lt;p&gt;标签：iOS&lt;/p&gt;
 &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象&lt;/p&gt;
