@@ -164,13 +164,93 @@
   </entry>
   
   <entry>
+    <title>Kindle越狱安装插件实现PDF重排</title>
+    <link href="http://yoursite.com/2016/03/23/Kindle%E8%B6%8A%E7%8B%B1%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0PDF%E9%87%8D%E6%8E%92/"/>
+    <id>http://yoursite.com/2016/03/23/Kindle越狱安装插件实现PDF重排/</id>
+    <published>2016-03-23T13:59:32.000Z</published>
+    <updated>2016-03-24T14:02:42.000Z</updated>
+    
+    <content type="html">&lt;p&gt;标签：Kindle&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Kindle作为阅读的神器，集齐舒服的水墨屏、精美排版的电子书、持久舒适的阅读体验等诸多优点，但是其对PDF尤其是扫描版支持堪忧，阅读体验相对亚马逊官方的电子书简直无法忍受，之前有提到过使用GAE部署KindleEar实现自动推送新闻博客文章，接下来将再进一步，对Kindle进行越狱，实现自动重排PDF。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;对比图&quot;&gt;&lt;a href=&quot;#对比图&quot; class=&quot;headerlink&quot; title=&quot;对比图&quot;&gt;&lt;/a&gt;对比图&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/5e999b55gw1f28a1edaf4j20kj0rftca.jpg&quot; alt=&quot;before&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/5e999b55gw1f28a2lkmj9j20ko0rq426.jpg&quot; alt=&quot;after&quot;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;越狱&quot;&gt;&lt;a href=&quot;#越狱&quot; class=&quot;headerlink&quot; title=&quot;越狱&quot;&gt;&lt;/a&gt;越狱&lt;/h2&gt;&lt;p&gt;首先下载好文件&lt;br&gt;&lt;a href=&quot;http://pan.baidu.com/s/1c1x5RJq&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;jb.zip&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://pan.baidu.com/s/1gdLLhNt&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JailBreak-1.14.N-FW-5.x-hotfix.zip&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;第一步&quot;&gt;&lt;a href=&quot;#第一步&quot; class=&quot;headerlink&quot; title=&quot;第一步&quot;&gt;&lt;/a&gt;第一步&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;解压缩，得到 jb 文件夹，把里面的 jb 文件拷贝到 Kindle根目录下；&lt;/li&gt;
+&lt;li&gt;从电脑弹出 Kindle，然后点击 Kindle右上角的菜单键，打开“体验版网页浏览器”；&lt;/li&gt;
+&lt;li&gt;点击地址栏调出键盘，在地址栏中输入网址 &lt;a href=&quot;http://kindlefere.com/jb，回车；&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://kindlefere.com/jb，回车；&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;在打开的页面中，点击底部的【I Agree】按钮，切换到另外一个页面；&lt;/li&gt;
+&lt;li&gt;先点击页面下方的链接 Stage1，看到出错页面后点击“返回按钮”返回；&lt;/li&gt;
+&lt;li&gt;再点击页面下方的链接 Stage2，当看到顶部状态栏出现“Run ;fc-cache in the search bar.”时，点击“搜索按钮”，并输入“;fc-cache”（不带引号，只输入标识为红色的字符，别漏掉分号“；”），回车；&lt;/li&gt;
+&lt;li&gt;当你看到“Jailbreak succeeded!”的提示信息，即表示操作成功。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;第二步&quot;&gt;&lt;a href=&quot;#第二步&quot; class=&quot;headerlink&quot; title=&quot;第二步&quot;&gt;&lt;/a&gt;第二步&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;解压缩下载到的 ZIP 压缩包 JailBreak-1.14.N-FW-5.x-hotfix.zip，得到一个名为 Update_jailbreak_bridge_1.14.N_install.bin 的文件；&lt;/li&gt;
+&lt;li&gt;将 bin 文件拷贝到 Kindle 磁盘根目录；&lt;/li&gt;
+&lt;li&gt;依次在 Kindle 中点击“菜单 —&amp;gt; 设置 —&amp;gt; 菜单 —&amp;gt; 更新您的 Kindle”，等待重启；&lt;/li&gt;
+&lt;li&gt;重启完毕后 Kindle 应该处于越狱状态了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;插件&quot;&gt;&lt;a href=&quot;#插件&quot; class=&quot;headerlink&quot; title=&quot;插件&quot;&gt;&lt;/a&gt;插件&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;KUAL&lt;br&gt;插件下载（KUAL-v2.6.zip）： &lt;a href=&quot;http://www.mobileread.com/forums/attachment.php?attachmentid=142287&amp;amp;d=1443189086&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;安装步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将 KUAL-KDK-2.0.azw2 拷贝到 Kindle 的 Documents 文件夹中；&lt;/li&gt;
+&lt;li&gt;打开 Kindle，即可看到一个名 Kindle LAUNCHER图标。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;MobileRead Package Installer (MRPI) —— 插件安装器&lt;/p&gt;
+&lt;p&gt;插件下载（kual-mrinstaller-1.6.N.zip）：&lt;a href=&quot;http://www.mobileread.com/forums/attachment.php?attachmentid=141195&amp;amp;d=1439936860&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方下载&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;安装步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将 extensions 和 mrpackages 拷贝到 Kindle 根目录下。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;Koreader —— PDF 重排软件&lt;/p&gt;
+&lt;p&gt;需要安装 KUAL 及其插件 MRinstaller，再安装 kpvbooklet，最后安装 Koreader。&lt;/p&gt;
+&lt;p&gt;插件下载（kpvbooklet ）：&lt;a href=&quot;https://github.com/koreader/kpvbooklet/releases/download/v0.6.2/kindle-kpvbooklet-0.6.2.zip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方下载&lt;/a&gt;&lt;br&gt;插件下载（Koreader ）：&lt;a href=&quot;https://github.com/koreader/koreader/releases/download/v2015.12.13-nightly/koreader-kindle-arm-linux-gnueabi-v2015.11-11-g16509e2.zip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方下载&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;安装步骤：&lt;/p&gt;
+&lt;p&gt;首先确保安装了 KUAL 及其插件 MRPI；&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将kpvbooklet文件夹内的 update_kpvbooklet_0.6.2_install.bin 拷贝到 Kindle 里 mrpackages 文件夹中；&lt;/li&gt;
+&lt;li&gt;点击 Kindle 中的 kindle LAUNCHER，依次点击 Helper -&amp;gt; Install MR Packages；&lt;br&gt;耐心等待 kpvbooklet 安装，直到安装完成后 Kindle 重启完毕；&lt;/li&gt;
+&lt;li&gt;将Koreader文件夹 extensions 中的内容拷贝到 Kindle 根目录下的 extensions 文件夹中；&lt;/li&gt;
+&lt;li&gt;将文件夹内的 koreader 文件夹拷贝到 kindle 根目录下，即安装完毕。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;大功告成&quot;&gt;&lt;a href=&quot;#大功告成&quot; class=&quot;headerlink&quot; title=&quot;大功告成&quot;&gt;&lt;/a&gt;大功告成&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/5e999b55gw1f28ans3guej20go0m8dgo.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/5e999b55gw1f28apzu645j20go0m80u8.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;标签：Kindle&lt;/p&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;Kindle作为阅读的神器，集齐舒服的水墨屏、精美排版的电子书、持久舒适的阅读体验等诸多优点，但是其对PD
+    
+    </summary>
+    
+      <category term="Read" scheme="http://yoursite.com/categories/Read/"/>
+    
+    
+      <category term="Hardware" scheme="http://yoursite.com/tags/Hardware/"/>
+    
+      <category term="Kindle" scheme="http://yoursite.com/tags/Kindle/"/>
+    
+      <category term="Read" scheme="http://yoursite.com/tags/Read/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mac上通过部署KindleEar订阅RSS自动推送到Kindle</title>
     <link href="http://yoursite.com/2016/03/20/Mac%E4%B8%8A%E9%80%9A%E8%BF%87%E9%83%A8%E7%BD%B2KindleEar%E8%AE%A2%E9%98%85RSS%E8%87%AA%E5%8A%A8%E6%8E%A8%E9%80%81%E5%88%B0Kindle/"/>
     <id>http://yoursite.com/2016/03/20/Mac上通过部署KindleEar订阅RSS自动推送到Kindle/</id>
     <published>2016-03-20T13:53:06.000Z</published>
-    <updated>2016-03-20T14:12:31.000Z</updated>
+    <updated>2016-03-24T14:02:41.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;Mac上通过部署KindleEar订阅RSS自动推送到Kindle&quot;&gt;&lt;a href=&quot;#Mac上通过部署KindleEar订阅RSS自动推送到Kindle&quot; class=&quot;headerlink&quot; title=&quot;#Mac上通过部署KindleEar订阅RSS自动推送到Kindle&quot;&gt;&lt;/a&gt;#Mac上通过部署KindleEar订阅RSS自动推送到Kindle&lt;/h2&gt;&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;每天上下班地铁上的闲暇时间，刚好通过阅读可以填补这一空白。所以最近当即入手了&lt;code&gt;Kindle&lt;/code&gt; 499款。众所周知，&lt;code&gt;Kindle&lt;/code&gt;的邮件推送是这个产品很亮眼的一个功能，日常除了亚马逊购买电子书、拷贝pdf之外，还希望通过它阅读一些时效性的新闻或者自媒体信息。&lt;/p&gt;
+    <content type="html">&lt;p&gt;标签：Kindle&lt;/p&gt;
+&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;每天上下班地铁上的闲暇时间，刚好通过阅读可以填补这一空白。所以最近当即入手了&lt;code&gt;Kindle&lt;/code&gt; 499款。众所周知，&lt;code&gt;Kindle&lt;/code&gt;的邮件推送是这个产品很亮眼的一个功能，日常除了亚马逊购买电子书、拷贝pdf之外，还希望通过它阅读一些时效性的新闻或者自媒体信息。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;第三方网站&quot;&gt;&lt;a href=&quot;#第三方网站&quot; class=&quot;headerlink&quot; title=&quot;第三方网站&quot;&gt;&lt;/a&gt;第三方网站&lt;/h2&gt;&lt;p&gt;Kindle4Rss (&lt;a href=&quot;http://kindle4rss.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://kindle4rss.com/&lt;/a&gt;)&lt;br&gt;经过几天的搜索，发现&lt;code&gt;Kindle4Rss&lt;/code&gt;算是比较容易上手的，试用了两天发现效果还行，但是免费用户有一定的限制（免费用户的限制是12个订阅RSS，总共2mb的图片，需手动投递）。&lt;img src=&quot;http://ptbsare.org/img/gae%E4%B8%8A%E6%90%AD%E5%BB%BAkindleear%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8rss%E6%8A%93%E5%8F%96%E8%AE%A2%E9%98%85/0.2.png&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -194,7 +274,8 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Mac上通过部署KindleEar订阅RSS自动推送到Kindle&quot;&gt;&lt;a href=&quot;#Mac上通过部署KindleEar订阅RSS自动推送到Kindle&quot; class=&quot;headerlink&quot; title=&quot;#Mac上通过部署KindleEar订阅RSS自动推
+      &lt;p&gt;标签：Kindle&lt;/p&gt;
+&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;每天上下班地铁上的闲暇时间，刚好通过阅读可以填补这一空白。所以最近当即入手了&lt;code&gt;Kindle&lt;/c
     
     </summary>
     
