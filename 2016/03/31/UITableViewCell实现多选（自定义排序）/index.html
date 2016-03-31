@@ -59,33 +59,28 @@
 
 
 
-<meta name="description" content="问题调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象
+<meta name="description" content="前言工作项目中有这样一个需求：目标控制器使用TableView展示一组网络请求返回的数组，由上一个控制器push过来时传入一个或多个该数组的元素，需要在展示时优先展示并默认选中传进来的数据。
 
-
-原因因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。
-
-解决stroybord创建的控制器，">
+需求分析
+功能实现首先将接收到的元素截取并存入数组，并打开TableView编辑模式1234//进入编辑模式[self.tableView setEditing:YES animated:YES];//接收">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UINavigationController在pushViewController时出现的卡顿问题">
-<meta property="og:url" content="http://www.xayoung.cn/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/index.html">
+<meta property="og:title" content="UITableViewCell实现多选（自定义排序）">
+<meta property="og:url" content="http://www.xayoung.cn/2016/03/31/UITableViewCell实现多选（自定义排序）/index.html">
 <meta property="og:site_name" content="Coder X | 分享coding的乐趣">
-<meta property="og:description" content="问题调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象
+<meta property="og:description" content="前言工作项目中有这样一个需求：目标控制器使用TableView展示一组网络请求返回的数组，由上一个控制器push过来时传入一个或多个该数组的元素，需要在展示时优先展示并默认选中传进来的数据。
 
-
-原因因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。
-
-解决stroybord创建的控制器，">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif">
-<meta property="og:updated_time" content="2016-03-31T13:00:02.000Z">
+需求分析
+功能实现首先将接收到的元素截取并存入数组，并打开TableView编辑模式1234//进入编辑模式[self.tableView setEditing:YES animated:YES];//接收">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f2g6vmfwufj20h60ahq3c.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/5e999b55gw1f2g7qtgsl0j20af0ijaas.jpg">
+<meta property="og:updated_time" content="2016-03-31T12:58:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UINavigationController在pushViewController时出现的卡顿问题">
-<meta name="twitter:description" content="问题调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象
+<meta name="twitter:title" content="UITableViewCell实现多选（自定义排序）">
+<meta name="twitter:description" content="前言工作项目中有这样一个需求：目标控制器使用TableView展示一组网络请求返回的数组，由上一个控制器push过来时传入一个或多个该数组的元素，需要在展示时优先展示并默认选中传进来的数据。
 
-
-原因因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。
-
-解决stroybord创建的控制器，">
-<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif">
+需求分析
+功能实现首先将接收到的元素截取并存入数组，并打开TableView编辑模式1234//进入编辑模式[self.tableView setEditing:YES animated:YES];//接收">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f2g6vmfwufj20h60ahq3c.jpg">
 
 
 
@@ -103,7 +98,7 @@
   };
 </script>
 
-<title> UINavigationController在pushViewController时出现的卡顿问题 | Coder X | 分享coding的乐趣 </title>
+<title> UITableViewCell实现多选（自定义排序） | Coder X | 分享coding的乐趣 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +268,7 @@
             
             
               
-                UINavigationController在pushViewController时出现的卡顿问题
+                UITableViewCell实现多选（自定义排序）
               
             
           </h1>
@@ -285,8 +280,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-20T20:54:29+08:00" content="2015-10-20">
-              2015-10-20
+            <time itemprop="dateCreated" datetime="2016-03-31T20:42:39+08:00" content="2016-03-31">
+              2016-03-31
             </time>
           </span>
 
@@ -315,8 +310,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/" itemprop="commentsCount"></span>
+                <a href="/2016/03/31/UITableViewCell实现多选（自定义排序）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/UITableViewCell实现多选（自定义排序）/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -326,7 +321,7 @@
 
           
           
-             <span id="/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/" class="leancloud_visitors" data-flag-title="UINavigationController在pushViewController时出现的卡顿问题">
+             <span id="/2016/03/31/UITableViewCell实现多选（自定义排序）/" class="leancloud_visitors" data-flag-title="UITableViewCell实现多选（自定义排序）">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -347,13 +342,16 @@
       
 
       
-        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象</p>
-<p><img src="http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif" alt="此处输入图片的描述"></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>工作项目中有这样一个需求：目标控制器使用TableView展示一组网络请求返回的数组，由上一个控制器push过来时传入一个或多个该数组的元素，需要在展示时优先展示并默认选中传进来的数据。</p>
 <hr>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。</p>
-<hr>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>stroybord创建的控制器，直接设置背景色为白色就解决了。或者在viewdidload中设置<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br></pre></td></tr></table></figure></p>
-
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://ww2.sinaimg.cn/large/5e999b55gw1f2g6vmfwufj20h60ahq3c.jpg" alt="此处输入图片的描述"></h2><hr>
+<h2 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h2><p>首先将接收到的元素截取并存入数组，并打开TableView编辑模式<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//进入编辑模式</span></span><br><span class="line">[<span class="keyword">self</span>.tableView setEditing:<span class="literal">YES</span> animated:<span class="literal">YES</span>];</span><br><span class="line"><span class="comment">//接收ID，截取为数组</span></span><br><span class="line">draftSendID = [<span class="built_in">NSMutableArray</span> arrayWithArray:[<span class="keyword">self</span>.receiverIds componentsSeparatedByString:<span class="string">@","</span>]];<span class="comment">//数组</span></span><br></pre></td></tr></table></figure></p>
+<p>发送网络请求，将返回的JSON模型化并存入数组，根据上一个上一个控制器传入的ID进行比对排序。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[infoarray addObject:[ReceiversModel instanceWithDict:item]];</span><br><span class="line"><span class="comment">//排序</span></span><br><span class="line"><span class="built_in">NSArray</span> *array1 = [infoarray sortedArrayUsingComparator:^<span class="built_in">NSComparisonResult</span>(<span class="keyword">id</span> obj1, <span class="keyword">id</span> obj2) &#123;</span><br><span class="line"></span><br><span class="line">ReceiversModel *model1 = [[ReceiversModel alloc]init];</span><br><span class="line">model1 = obj1;</span><br><span class="line">ReceiversModel *model2 = [[ReceiversModel alloc]init];</span><br><span class="line">model2 = obj2;</span><br><span class="line"><span class="keyword">if</span> (![draftSendID containsObject:model1.receiverId] )&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">NSOrderedDescending</span>;</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>([draftSendID containsObject:model1.receiverId])&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">NSOrderedAscending</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">NSOrderedSame</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+<p>数据源中实现选中<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">ReceiversModel *model = infoarray[indexPath.row];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ([draftSendID containsObject:model.receiverId] ) &#123;</span><br><span class="line">[receiverIdsArray addObject:model];</span><br><span class="line">[<span class="keyword">self</span>.tableView selectRowAtIndexPath:indexPath animated:<span class="literal">YES</span> scrollPosition:<span class="built_in">UITableViewScrollPositionNone</span>];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[cell setCellWithModel:model];</span><br><span class="line"><span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以下三个TableView代理方法必须要实现<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)tableView:(<span class="built_in">UITableView</span> *)tableView canEditRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(<span class="built_in">UITableViewCellEditingStyle</span>)tableView:(<span class="built_in">UITableView</span> *)tableView editingStyleForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</span><br><span class="line"><span class="comment">//选中编辑模式</span></span><br><span class="line"><span class="keyword">return</span> <span class="built_in">UITableViewCellEditingStyleDelete</span> | <span class="built_in">UITableViewCellEditingStyleInsert</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView commitEditingStyle:(<span class="built_in">UITableViewCellEditingStyle</span>)editingStyle forRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>选中实现方法<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView didSelectRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath &#123;</span><br><span class="line"></span><br><span class="line">ReceiversModel *model = infoarray[indexPath.row];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (![receiverIdsArray containsObject:model] ) &#123;</span><br><span class="line">[receiverIdsArray addObject:model];</span><br><span class="line">&#125;</span><br><span class="line">[<span class="keyword">self</span>.tableView selectRowAtIndexPath:indexPath animated:<span class="literal">YES</span> scrollPosition:<span class="built_in">UITableViewScrollPositionNone</span>];</span><br><span class="line"><span class="comment">//可通过下方方法实现单选，此处不适用</span></span><br><span class="line"><span class="comment">//    NSInteger newRow = [indexPath row];</span></span><br><span class="line"><span class="comment">//    </span></span><br><span class="line"><span class="comment">//    NSInteger oldRow = (lastIndexPath != nil) ? [lastIndexPath row] : -1;</span></span><br><span class="line"><span class="comment">//    if (newRow != oldRow)</span></span><br><span class="line"><span class="comment">//        </span></span><br><span class="line"><span class="comment">//    &#123;</span></span><br><span class="line"><span class="comment">//        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];</span></span><br><span class="line"><span class="comment">//        UITableViewCell *oldCell = [tableView cellForRowAtIndexPath:lastIndexPath];</span></span><br><span class="line"><span class="comment">//        </span></span><br><span class="line"><span class="comment">//        oldCell.accessoryType = UITableViewCellAccessoryNone;</span></span><br><span class="line"><span class="comment">//        </span></span><br><span class="line"><span class="comment">//        [tableView deselectRowAtIndexPath:lastIndexPath animated:YES];</span></span><br><span class="line"><span class="comment">//        lastIndexPath = [indexPath copy];</span></span><br><span class="line"><span class="comment">//        </span></span><br><span class="line"><span class="comment">//    &#125;else&#123;</span></span><br><span class="line"><span class="comment">//    </span></span><br><span class="line"><span class="comment">//    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];</span></span><br><span class="line"><span class="comment">//    </span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>取消选中方法，进行判断<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView didDeselectRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</span><br><span class="line">ReceiversModel *model = infoarray[indexPath.row];</span><br><span class="line"><span class="keyword">if</span> ([receiverIdsArray containsObject:model] ) &#123;</span><br><span class="line">[receiverIdsArray removeObject:model];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="最后再拼接字符串通过代理回传到上一个控制器就o了"><a href="#最后再拼接字符串通过代理回传到上一个控制器就o了" class="headerlink" title="最后再拼接字符串通过代理回传到上一个控制器就o了"></a>最后再拼接字符串通过代理回传到上一个控制器就o了</h2><h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="http://ww1.sinaimg.cn/large/5e999b55gw1f2g7qtgsl0j20af0ijaas.jpg" alt="此处输入图片的描述"></h2>
       
     </div>
 
@@ -376,17 +374,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/22/iOS UITableviewWrapperView偏移问题/" rel="next" title="iOS UITableviewWrapperView偏移问题">
-                <i class="fa fa-chevron-left"></i> iOS UITableviewWrapperView偏移问题
+              <a href="/2016/03/24/Swift语言指南/" rel="next" title="Swift语言指南">
+                <i class="fa fa-chevron-left"></i> Swift语言指南
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/20/Mac上通过部署KindleEar订阅RSS自动推送到Kindle/" rel="prev" title="Mac上通过部署KindleEar订阅RSS自动推送到Kindle">
-                Mac上通过部署KindleEar订阅RSS自动推送到Kindle <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -412,8 +406,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/"
-           data-title="UINavigationController在pushViewController时出现的卡顿问题" data-url="http://www.xayoung.cn/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/">
+      <div class="ds-thread" data-thread-key="2016/03/31/UITableViewCell实现多选（自定义排序）/"
+           data-title="UITableViewCell实现多选（自定义排序）" data-url="http://www.xayoung.cn/2016/03/31/UITableViewCell实现多选（自定义排序）/">
       </div>
     
   </div>
@@ -534,7 +528,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原因"><span class="nav-number">2.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">3.</span> <span class="nav-text">解决</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求分析"><span class="nav-number">2.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能实现"><span class="nav-number">4.</span> <span class="nav-text">功能实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后再拼接字符串通过代理回传到上一个控制器就o了"><span class="nav-number">5.</span> <span class="nav-text">最后再拼接字符串通过代理回传到上一个控制器就o了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大功告成"><span class="nav-number">6.</span> <span class="nav-text">大功告成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">7.</span> <span class="nav-text"></span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
