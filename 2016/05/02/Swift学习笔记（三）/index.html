@@ -59,33 +59,21 @@
 
 
 
-<meta name="description" content="问题调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象
-
-
-原因因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。
-
-解决stroybord创建的控制器，">
+<meta name="description" content="继承
+一个类可以继承（inherit）另一个类的方法（methods），属性（properties）和其它特性。当一个类继承其它类时，继承类叫子类（subclass），被继承类叫超类（或父类，superclass）。在 Swift 中，继承是区分「类」与其它类型的一个基本特征。在 Swift 中，类可以调用和访问超类的方法，属性和下标（subscripts），并且可以重写（override）这些方">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UINavigationController在pushViewController时出现的卡顿问题">
-<meta property="og:url" content="http://www.xayoung.cn/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/index.html">
+<meta property="og:title" content="Swift学习笔记（三）">
+<meta property="og:url" content="http://www.xayoung.cn/2016/05/02/Swift学习笔记（三）/index.html">
 <meta property="og:site_name" content="Coder X | 分享coding的乐趣">
-<meta property="og:description" content="问题调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象
-
-
-原因因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。
-
-解决stroybord创建的控制器，">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif">
-<meta property="og:updated_time" content="2016-03-31T13:00:02.000Z">
+<meta property="og:description" content="继承
+一个类可以继承（inherit）另一个类的方法（methods），属性（properties）和其它特性。当一个类继承其它类时，继承类叫子类（subclass），被继承类叫超类（或父类，superclass）。在 Swift 中，继承是区分「类」与其它类型的一个基本特征。在 Swift 中，类可以调用和访问超类的方法，属性和下标（subscripts），并且可以重写（override）这些方">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f3gwzfornwg20l90fxjzb.gif">
+<meta property="og:updated_time" content="2016-05-02T04:15:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UINavigationController在pushViewController时出现的卡顿问题">
-<meta name="twitter:description" content="问题调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象
-
-
-原因因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。
-
-解决stroybord创建的控制器，">
-<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif">
+<meta name="twitter:title" content="Swift学习笔记（三）">
+<meta name="twitter:description" content="继承
+一个类可以继承（inherit）另一个类的方法（methods），属性（properties）和其它特性。当一个类继承其它类时，继承类叫子类（subclass），被继承类叫超类（或父类，superclass）。在 Swift 中，继承是区分「类」与其它类型的一个基本特征。在 Swift 中，类可以调用和访问超类的方法，属性和下标（subscripts），并且可以重写（override）这些方">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f3gwzfornwg20l90fxjzb.gif">
 
 
 
@@ -103,7 +91,7 @@
   };
 </script>
 
-<title> UINavigationController在pushViewController时出现的卡顿问题 | Coder X | 分享coding的乐趣 </title>
+<title> Swift学习笔记（三） | Coder X | 分享coding的乐趣 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +261,7 @@
             
             
               
-                UINavigationController在pushViewController时出现的卡顿问题
+                Swift学习笔记（三）
               
             
           </h1>
@@ -285,8 +273,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-20T20:54:29+08:00" content="2015-10-20">
-              2015-10-20
+            <time itemprop="dateCreated" datetime="2016-05-02T12:13:25+08:00" content="2016-05-02">
+              2016-05-02
             </time>
           </span>
 
@@ -315,8 +303,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/" itemprop="commentsCount"></span>
+                <a href="/2016/05/02/Swift学习笔记（三）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/02/Swift学习笔记（三）/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -326,7 +314,7 @@
 
           
           
-             <span id="/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/" class="leancloud_visitors" data-flag-title="UINavigationController在pushViewController时出现的卡顿问题">
+             <span id="/2016/05/02/Swift学习笔记（三）/" class="leancloud_visitors" data-flag-title="Swift学习笔记（三）">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -347,12 +335,31 @@
       
 
       
-        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象</p>
-<p><img src="http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif" alt="此处输入图片的描述"></p>
+        <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><blockquote>
+<p>一个类可以继承（inherit）另一个类的方法（methods），属性（properties）和其它特性。当一个类继承其它类时，继承类叫子类（subclass），被继承类叫超类（或父类，superclass）。在 Swift 中，继承是区分「类」与其它类型的一个基本特征。<br>在 Swift 中，类可以调用和访问超类的方法，属性和下标（subscripts），并且可以重写（override）这些方法，属性和下标来优化或修改它们的行为。Swift 会检查你的重写定义在超类中是否有匹配的定义，以此确保你的重写行为是正确的。</p>
+</blockquote>
 <hr>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。</p>
+<h2 id="父类"><a href="#父类" class="headerlink" title="父类"></a>父类</h2><blockquote>
+<p>不继承于其它类的类，称之为基类（base class）。注意:Swift 中的类并不是从一个通用的基类继承而来。如果你不为你定义的类指定一个超类的话，这个类就自动成为基类。</p>
+</blockquote>
+<p>这里的控制器继承于UIViewController<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HappinessViewController</span>: <span class="title">UIViewController</span>, <span class="title">FaceViewDataSource</span> </span>&#123;</span><br><span class="line">......</span><br><span class="line"><span class="keyword">var</span> happiness: <span class="type">Int</span>  = <span class="number">10</span> &#123;</span><br><span class="line"><span class="keyword">didSet</span>&#123;</span><br><span class="line">happiness = <span class="built_in">min</span>(<span class="built_in">max</span>(happiness, <span class="number">0</span>), <span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"happiness = <span class="subst">\(happiness)</span>"</span>)</span><br><span class="line">updateUI()</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">updateUI</span><span class="params">()</span></span> &#123;</span><br><span class="line">faceView?.setNeedsDisplay()</span><br><span class="line">title = <span class="string">"<span class="subst">\(happiness)</span>"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">smilinessForFaceView</span><span class="params">(sender: FaceView)</span></span> -&gt; <span class="type">Double</span>? &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="type">Double</span>(happiness - <span class="number">50</span>)/<span class="number">50</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>stroybord创建的控制器，直接设置背景色为白色就解决了。或者在viewdidload中设置<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br></pre></td></tr></table></figure></p>
+<h2 id="子类"><a href="#子类" class="headerlink" title="子类"></a>子类</h2><blockquote>
+<p>子类生成（Subclassing）指的是在一个已有类的基础上创建一个新的类。子类继承超类的特性，并且可以进一步完善。你还可以为子类添加新的特性。</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DianosedHappinessViewController</span>: <span class="title">HappinessViewController</span>, <span class="title">UIPopoverPresentationControllerDelegate</span></span>&#123;</span><br><span class="line"><span class="keyword">override</span> <span class="keyword">var</span> happiness: <span class="type">Int</span>&#123;</span><br><span class="line"><span class="comment">//先执行父类didSet，后执行子类的didSet。不会覆盖</span></span><br><span class="line"><span class="keyword">didSet</span>&#123;</span><br><span class="line">dianosticHistory += [happiness]</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">····</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><blockquote>
+<p>方法是与某些特定类型相关联的函数。类、结构体、枚举都可以定义实例方法；实例方法为给定类型的实例封装了具体的任务与功能。类、结构体、枚举也可以定义类型方法；类型方法与类型本身相关联。类型方法与 Objective-C 中的类方法（class methods）相似。<br>结构体和枚举能够定义方法是 Swift 与 C/Objective-C 的主要区别之一。在 Objective-C 中，类是唯一能定义方法的类型。但在 Swift 中，你不仅能选择是否要定义一个类/结构体/枚举，还能灵活地在你创建的类型（类/结构体/枚举）上定义方法。</p>
+</blockquote>
+<p>定义运算方法<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//压入栈函数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">pushOperand</span><span class="params">(operand: Double)</span></span> -&gt; <span class="type">Double</span>?&#123;</span><br><span class="line">opStack.append(<span class="type">Op</span>.<span class="type">Operand</span>(operand))</span><br><span class="line"><span class="keyword">return</span> evaluate()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//传入运算符，执行运算</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">performOperation</span><span class="params">(symbol: String)</span></span> -&gt; <span class="type">Double</span>?&#123;</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> operation = knownOps[symbol]&#123;</span><br><span class="line">opStack.append(operation)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> evaluate()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>调用<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//运算</span></span><br><span class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">operate</span><span class="params">(sender: UIButton)</span></span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> userIsInTheMiddleOfTypingANumber &#123;</span><br><span class="line">enter()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> operation = sender.currentTitle &#123;</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> result = brain.performOperation(operation)&#123;</span><br><span class="line">displayValue = result</span><br><span class="line">&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">displayValue = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@IBAction</span> <span class="function"><span class="keyword">func</span> <span class="title">enter</span><span class="params">()</span></span> &#123;</span><br><span class="line">userIsInTheMiddleOfTypingANumber = <span class="literal">false</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> result = brain.pushOperand(displayValue)&#123;</span><br><span class="line">displayValue = result</span><br><span class="line">&#125; <span class="keyword">else</span>&#123;</span><br><span class="line">displayValue = <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="构造过程"><a href="#构造过程" class="headerlink" title="构造过程"></a>构造过程</h1><blockquote>
+<p>构造过程是使用类、结构体或枚举类型的实例之前的准备过程。在新实例可用前必须执行这个过程，具体操作包括设置实例中每个存储型属性的初始值和执行其他必须的设置或初始化工作。<br>通过定义构造器（Initializers）来实现构造过程，这些构造器可以看做是用来创建特定类型新实例的特殊方法。与 Objective-C 中的构造器不同，Swift 的构造器无需返回值，它们的主要任务是保证新实例在第一次使用前完成正确的初始化。</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义字典，key为运算符，value为Op，即运算方法</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">var</span> knownOps = <span class="type">Dictionary</span>&lt;<span class="type">String</span>, <span class="type">Op</span>&gt;()</span><br><span class="line"><span class="keyword">init</span>() &#123;</span><br><span class="line">knownOps[<span class="string">"×"</span>] = <span class="type">Op</span>.<span class="type">BinaryOperation</span>(<span class="string">"×"</span>, *)</span><br><span class="line">knownOps[<span class="string">"÷"</span>] = <span class="type">Op</span>.<span class="type">BinaryOperation</span>(<span class="string">"÷"</span>) &#123;$<span class="number">1</span> / $<span class="number">0</span>&#125;</span><br><span class="line">knownOps[<span class="string">"-"</span>] = <span class="type">Op</span>.<span class="type">BinaryOperation</span>(<span class="string">"-"</span>) &#123;$<span class="number">1</span> - $<span class="number">0</span>&#125;</span><br><span class="line">knownOps[<span class="string">"+"</span>] = <span class="type">Op</span>.<span class="type">BinaryOperation</span>(<span class="string">"+"</span>, +)</span><br><span class="line">knownOps[<span class="string">"√"</span>] = <span class="type">Op</span>.<span class="type">UnaryOperation</span>(<span class="string">"√"</span>, sqrt)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>最后展示截止到课时7，demo效果图。附上代码的github连接：<a href="https://github.com/xayoung/CS193P-DemoCode" target="_blank" rel="external">https://github.com/xayoung/CS193P-DemoCode</a><br><img src="http://ww2.sinaimg.cn/large/5e999b55gw1f3gwzfornwg20l90fxjzb.gif" alt="此处输入图片的描述"></p>
 
       
     </div>
@@ -376,17 +383,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/22/iOS UITableviewWrapperView偏移问题/" rel="next" title="iOS UITableviewWrapperView偏移问题">
-                <i class="fa fa-chevron-left"></i> iOS UITableviewWrapperView偏移问题
+              <a href="/2016/04/10/Swift学习笔记（二）/" rel="next" title="Swift学习笔记（二）">
+                <i class="fa fa-chevron-left"></i> Swift学习笔记（二）
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/20/Mac上通过部署KindleEar订阅RSS自动推送到Kindle/" rel="prev" title="Mac上通过部署KindleEar订阅RSS自动推送到Kindle">
-                Mac上通过部署KindleEar订阅RSS自动推送到Kindle <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -412,8 +415,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/"
-           data-title="UINavigationController在pushViewController时出现的卡顿问题" data-url="http://www.xayoung.cn/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/">
+      <div class="ds-thread" data-thread-key="2016/05/02/Swift学习笔记（三）/"
+           data-title="Swift学习笔记（三）" data-url="http://www.xayoung.cn/2016/05/02/Swift学习笔记（三）/">
       </div>
     
   </div>
@@ -534,7 +537,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原因"><span class="nav-number">2.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">3.</span> <span class="nav-text">解决</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#继承"><span class="nav-number">1.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#父类"><span class="nav-number">1.1.</span> <span class="nav-text">父类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子类"><span class="nav-number">1.2.</span> <span class="nav-text">子类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造过程"><span class="nav-number">3.</span> <span class="nav-text">构造过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
