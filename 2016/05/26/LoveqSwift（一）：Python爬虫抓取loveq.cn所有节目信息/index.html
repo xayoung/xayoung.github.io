@@ -1,0 +1,945 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Swift,Python,iOS," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Coder X | 分享coding的乐趣" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="前言听《一些事一些情》已经十多年，近来通勤时间重温以往节目的时候发现，无论官方或民间的APP都或多或少有些遗憾，虽然也是个重复造轮子的活，但是自己动手写一个或许会更有乐趣呢。
+
+缘由首先，开发一款音乐播放器的移动APP，我们得有api才可以展示数据，下载音频文件，最终播放节目。如何获取到每一期节目的数据呢？
+
+方案一通过对现有的APP抓包，这个方案最简单快捷，使用charles之类的工具可以对官方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息">
+<meta property="og:url" content="http://www.xayoung.cn/2016/05/26/LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息/index.html">
+<meta property="og:site_name" content="Coder X | 分享coding的乐趣">
+<meta property="og:description" content="前言听《一些事一些情》已经十多年，近来通勤时间重温以往节目的时候发现，无论官方或民间的APP都或多或少有些遗憾，虽然也是个重复造轮子的活，但是自己动手写一个或许会更有乐趣呢。
+
+缘由首先，开发一款音乐播放器的移动APP，我们得有api才可以展示数据，下载音频文件，最终播放节目。如何获取到每一期节目的数据呢？
+
+方案一通过对现有的APP抓包，这个方案最简单快捷，使用charles之类的工具可以对官方">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/5e999b55gw1f48xhpl4ang20kx0hvnil.gif">
+<meta property="og:updated_time" content="2016-05-26T14:21:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息">
+<meta name="twitter:description" content="前言听《一些事一些情》已经十多年，近来通勤时间重温以往节目的时候发现，无论官方或民间的APP都或多或少有些遗憾，虽然也是个重复造轮子的活，但是自己动手写一个或许会更有乐趣呢。
+
+缘由首先，开发一款音乐播放器的移动APP，我们得有api才可以展示数据，下载音频文件，最终播放节目。如何获取到每一期节目的数据呢？
+
+方案一通过对现有的APP抓包，这个方案最简单快捷，使用charles之类的工具可以对官方">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/5e999b55gw1f48xhpl4ang20kx0hvnil.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 3148479,
+      author: '博主'
+    }
+  };
+</script>
+
+<title> LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息 | Coder X | 分享coding的乐趣 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?4305920195895ba6d11d1da98f584752";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Coder X | 分享coding的乐趣</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Stay hungry,Stay foolish.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'DXUuxoGBhXeHNZrnn_G1','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-26T21:04:30+08:00" content="2016-05-26">
+              2016-05-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/26/LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/26/LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/05/26/LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息/" class="leancloud_visitors" data-flag-title="LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>听《<a href="http://www.loveq.cn/" target="_blank" rel="external">一些事一些情</a>》已经十多年，近来通勤时间重温以往节目的时候发现，无论官方或民间的APP都或多或少有些遗憾，虽然也是个重复造轮子的活，但是自己动手写一个或许会更有乐趣呢。</p>
+<hr>
+<h1 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h1><p>首先，开发一款音乐播放器的移动APP，我们得有api才可以展示数据，下载音频文件，最终播放节目。如何获取到每一期节目的数据呢？</p>
+<ul>
+<li>方案一<br>通过对现有的APP抓包，这个方案最简单快捷，使用charles之类的工具可以对官方和民间APP进行抓包，获取api。但，选取的几款APP均不是采用get、post请求的，没办法轻易拿到数据，pass。</li>
+<li>方案二<br>通过APP内部加载单页web，获取网页源代码后，通过正则表达式提取节目信息以及下载链接并展示。但，经过测试后发现，此方案会有比较严重的性能问题，加载时间过久，用户体验较差，pass。（以下为两种加载web方式的测试代码）</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下标截取，蠢方法一</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">subWebstring</span><span class="params">(HTMLSource: [String?])</span></span> -&gt; <span class="type">Array</span>&lt;<span class="type">AnyObject</span>&gt;  &#123;</span><br><span class="line"><span class="keyword">let</span> reg = <span class="keyword">try</span>! <span class="type">NSRegularExpression</span>.<span class="keyword">init</span>(pattern: parten, options: .<span class="type">CaseInsensitive</span>)</span><br><span class="line"><span class="keyword">let</span> <span class="type">HTML</span> = <span class="type">HTMLSource</span>[<span class="number">0</span>]! <span class="keyword">as</span> <span class="type">NSString</span></span><br><span class="line"><span class="keyword">let</span> array0 = <span class="type">HTML</span>.componentsSeparatedByString(<span class="string">"节目名称&lt;/dt&gt;"</span>)</span><br><span class="line"><span class="keyword">let</span> <span class="type">HTML2</span> = array0[<span class="number">1</span>] <span class="keyword">as</span> <span class="type">NSString</span></span><br><span class="line"><span class="keyword">let</span> array = reg.matchesInString(<span class="type">HTML2</span> <span class="keyword">as</span> <span class="type">String</span>, options: .<span class="type">ReportCompletion</span>, range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, <span class="type">HTML2</span>.length))</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> data = <span class="type">Array</span>&lt;<span class="type">AnyObject</span>&gt;()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> match: <span class="type">NSTextCheckingResult</span> <span class="keyword">in</span> array &#123;</span><br><span class="line"><span class="keyword">let</span> range = match.range</span><br><span class="line"><span class="keyword">let</span> string: <span class="type">String</span> = <span class="type">HTML2</span>.substringWithRange(range)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> s1 = (string <span class="keyword">as</span> <span class="type">NSString</span>).substringWithRange(<span class="type">NSMakeRange</span>(<span class="number">9</span>, <span class="number">26</span>))</span><br><span class="line"><span class="keyword">let</span> s2 = (string <span class="keyword">as</span> <span class="type">NSString</span>).substringWithRange(<span class="type">NSMakeRange</span>(<span class="number">173</span>, <span class="number">13</span>))</span><br><span class="line"><span class="keyword">let</span> s3 = (string <span class="keyword">as</span> <span class="type">NSString</span>).substringWithRange(<span class="type">NSMakeRange</span>(<span class="number">167</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ns3 = [<span class="string">"url"</span>:s1, <span class="string">"title"</span>:s2, <span class="string">"format"</span>:s3]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = <span class="type">Mapper</span>&lt;<span class="type">ProgrammerListModel</span>&gt;().<span class="built_in">map</span>(ns3)</span><br><span class="line">data.append(user!)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用第三方框架Fuzi</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Fuzi</span><span class="params">(HTMLSource: [String?])</span></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> html = <span class="type">HTMLSource</span>[<span class="number">0</span>]!</span><br><span class="line"><span class="keyword">let</span> program = <span class="string">"program_download"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line"><span class="keyword">let</span> doc = <span class="keyword">try</span>! <span class="type">HTMLDocument</span>(string: html, encoding: <span class="type">NSUTF8StringEncoding</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> doc.css(<span class="string">"a, link"</span>) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> str: <span class="type">String</span>? = link[<span class="string">"href"</span>]</span><br><span class="line"><span class="keyword">if</span> str != <span class="literal">nil</span> &amp;&amp; str!.containsString(program) &#123;</span><br><span class="line"><span class="built_in">print</span>(link[<span class="string">"href"</span>])</span><br><span class="line"><span class="keyword">if</span> !urlSource.<span class="built_in">contains</span>(str!) &#123;</span><br><span class="line"><span class="keyword">if</span> str!.hasPrefix(program) &#123;</span><br><span class="line">urlSource.append(str!)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(urlSource)</span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> doc.css(<span class="string">"span"</span>) &#123;</span><br><span class="line"><span class="keyword">let</span> s = link.stringValue <span class="keyword">as</span> <span class="type">NSString</span></span><br><span class="line"><span class="keyword">if</span> s.length &gt; <span class="number">0</span> &#123;</span><br><span class="line"><span class="keyword">let</span> s1 = (s <span class="keyword">as</span> <span class="type">NSString</span>).substringToIndex(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">if</span> s1 == <span class="string">"【"</span> &#123;</span><br><span class="line"><span class="built_in">print</span>(s)</span><br><span class="line">dataSource.append(s)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> result = doc.eval(xpath: <span class="string">"count(/*/a)"</span>) &#123;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"anchor count : <span class="subst">\(result.doubleValue)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(urlSource)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>方案三<br>通过抓取官网所有的节目信息和下载地址，自己搭建服务器提供api。此方案要实行对于个人来说有两个难点：1.怎么抓取一千多期节目的数据；2.怎么搭建服务器并提供接口。经过分析各种方案后，第一点可以通过Python爬虫解决，第二点，因后端知识树暂时没点，所以暂时使用实时云服务来替代。一开始是目标为<a href="https://www.firebase.com/" target="_blank" rel="external">firebase</a>，试用后发现，Google收购它后，慢慢添加Google一些服务接口进去了，由于众所周知的原因，最终选用了墙内的<a href="https://www.wilddog.com/" target="_blank" rel="external">wilddog</a>。</li>
+</ul>
+<hr>
+<h1 id="动工"><a href="#动工" class="headerlink" title="动工"></a>动工</h1><p>方案选定后，正式动工。<br>Python为现学现卖，so，现阶段的目标实现需求达到目标即可。<br>经过分析网页源代码，抓取流程如下：<strong>在界面列表抓取当前页所有节目信息–&gt;跳转单期节目的下载页获取真正的音频文件地址–&gt;将节目信息与真正的音频文件地址并为字典按照月份分类再存入数组–&gt;抓取下一页·····所有页抓取完毕后–&gt;再按照年份进行分类–&gt;分别写入不同的JSON文件</strong>。</p>
+<p>需要用到的库：urllib2、re、json</p>
+<h2 id="抓取界面信息"><a href="#抓取界面信息" class="headerlink" title="抓取界面信息"></a>抓取界面信息</h2><p>定义Class,初始化确定好下载页面的url，以及全局接收的数组</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Spider</span>:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#初始化</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">self.siteURL = <span class="string">'http://www.loveq.cn/program.php?&amp;cat_id=20&amp;'</span></span><br><span class="line">self.JSONMP3 = []</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取索引页面的内容</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPage</span><span class="params">(self,pageIndex)</span>:</span></span><br><span class="line">url = self.siteURL + <span class="string">"page="</span> + str(pageIndex)</span><br><span class="line">request = urllib2.Request(url)</span><br><span class="line">response = urllib2.urlopen(request)</span><br><span class="line"><span class="keyword">return</span> response.read().decode(<span class="string">'utf-8'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="抓取当前页所有节目"><a href="#抓取当前页所有节目" class="headerlink" title="抓取当前页所有节目"></a>抓取当前页所有节目</h2><p>抓取完毕之后过滤掉WMA格式，并对粤语和普通话双版本进行分类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取索引界面所有节目的信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getContents</span><span class="params">(self,pageIndex)</span>:</span></span><br><span class="line">page = self.getPage(pageIndex)</span><br><span class="line">pattern = re.compile(<span class="string">'&lt;dl.*?clearfix"&gt;.*?&lt;dt.*?&lt;a.*?"(.*?)".*?target.*?"&gt;(.*?)&lt;/a&gt;.*?class="ct"&gt;&lt;span&gt;(.*?)&lt;/dd&gt;'</span>,re.S)</span><br><span class="line">items = re.findall(pattern,page)</span><br><span class="line"></span><br><span class="line">jsonChinese = []</span><br><span class="line">jsonMP3 = []</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">downloadURL = self.getDetailPage(item[<span class="number">0</span>])</span><br><span class="line"><span class="keyword">print</span> item</span><br><span class="line">name=item[<span class="number">2</span>].encode(<span class="string">"utf-8"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="string">'MP3格式'</span> <span class="keyword">in</span> name <span class="keyword">or</span> <span class="string">'mp3格式'</span> <span class="keyword">in</span> name:</span><br><span class="line"><span class="keyword">if</span> <span class="string">'普通话'</span> <span class="keyword">in</span> name:</span><br><span class="line"><span class="comment"># 保存普通话节目列表</span></span><br><span class="line">jsonChinese.append([downloadURL,item[<span class="number">1</span>],<span class="number">0</span>])</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="comment">#保存粤语节目列表</span></span><br><span class="line">jsonMP3.append([downloadURL,item[<span class="number">1</span>],<span class="number">1</span>])</span><br><span class="line">contents = &#123;&#125;</span><br><span class="line">contents.setdefault(<span class="string">'url'</span>,downloadURL)</span><br><span class="line">contents.setdefault(<span class="string">'title'</span>,item[<span class="number">1</span>])</span><br><span class="line">contents.setdefault(<span class="string">'type'</span>,str(<span class="number">1</span>))</span><br><span class="line">self.JSONMP3.append(contents)</span><br><span class="line"><span class="comment">#2006-2009年的节目没有采用[MP3格式]xxxx这样的方式作为title,手动进行切换代码吧=.=</span></span><br><span class="line"><span class="comment"># jsonMP3.append([downloadURL, item[1], 1])</span></span><br><span class="line"><span class="comment"># contents = &#123;&#125;</span></span><br><span class="line"><span class="comment"># contents.setdefault('url', downloadURL)</span></span><br><span class="line"><span class="comment"># contents.setdefault('title', item[1])</span></span><br><span class="line"><span class="comment"># contents.setdefault('type', str(1))</span></span><br><span class="line"><span class="comment"># self.JSONMP3.append(contents)</span></span><br></pre></td></tr></table></figure>
+<h2 id="跳转下载页面获取真正下载地址"><a href="#跳转下载页面获取真正下载地址" class="headerlink" title="跳转下载页面获取真正下载地址"></a>跳转下载页面获取真正下载地址</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#获取真实下载地址</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getDetailPage</span><span class="params">(self,infoURL)</span>:</span></span><br><span class="line">url = <span class="string">'http://www.loveq.cn/'</span> + infoURL</span><br><span class="line">response = urllib2.urlopen(url)</span><br><span class="line">content = response.read().decode(<span class="string">'utf-8'</span>)</span><br><span class="line">pattern = re.compile(<span class="string">'&lt;div.*?more_downlink".*?style.*?&lt;a.*?"(.*?)"'</span>,re.S)</span><br><span class="line">items = re.findall(pattern,content)</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">downloadURL = item</span><br><span class="line"><span class="keyword">return</span> downloadURL</span><br></pre></td></tr></table></figure>
+<h2 id="分类保存所有节目数据"><a href="#分类保存所有节目数据" class="headerlink" title="分类保存所有节目数据"></a>分类保存所有节目数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#传入起止页码，获取界面json</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">savePagesInfo</span><span class="params">(self,start,end)</span>:</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(start,end+<span class="number">1</span>):</span><br><span class="line"><span class="keyword">print</span> <span class="string">u"looking for page"</span>,i</span><br><span class="line">self.savePageInfo(i)</span><br><span class="line"></span><br><span class="line"><span class="comment">#将整页节目列表保存起来</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">savePageInfo</span><span class="params">(self,pageIndex)</span>:</span></span><br><span class="line">self.getContents(pageIndex)</span><br></pre></td></tr></table></figure>
+<h2 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h2><p>主要用于按照年份进行分类，并导出JSON文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tools</span>:</span></span><br><span class="line"><span class="comment">#工具初始化</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">self.JSONFile = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#传入起止月份，获取新json</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">saveNewJSONSInfo</span><span class="params">(self,year,start,end,JSON)</span>:</span></span><br><span class="line">self.JSONFile = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(start,end+<span class="number">1</span>):</span><br><span class="line">self.saveJSONInfo(year,i,JSON)</span><br><span class="line"></span><br><span class="line"><span class="comment">#将节目保存起来</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">saveJSONInfo</span><span class="params">(self,year,Index,JSON)</span>:</span></span><br><span class="line">moonJSON = []</span><br><span class="line">moonstr = <span class="string">''</span></span><br><span class="line">moonstr2 = <span class="string">''</span></span><br><span class="line"><span class="keyword">if</span> Index &lt; <span class="number">10</span>:</span><br><span class="line">moonstr = year + <span class="string">'.0'</span> + str(Index)</span><br><span class="line">moonstr2 = year + <span class="string">'0'</span> + str(Index)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">moonstr = year + <span class="string">'.'</span> + str(Index)</span><br><span class="line">moonstr2 = year + str(Index)</span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> JSON:</span><br><span class="line"><span class="keyword">if</span> moonstr <span class="keyword">in</span> item[<span class="string">'title'</span>]:</span><br><span class="line">moonJSON.append(item)</span><br><span class="line">self.JSONFile.setdefault(moonstr2,moonJSON)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">store</span><span class="params">(self,year,JSON)</span>:</span></span><br><span class="line"><span class="keyword">with</span> open( year + <span class="string">'JSONFile.json'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">f.write(json.dumps(JSON))</span><br></pre></td></tr></table></figure>
+<h2 id="Let’s-go"><a href="#Let’s-go" class="headerlink" title="Let’s go"></a>Let’s go</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#传入起止页码即可，在此传入了1,71,表示抓取第2到10页的节目</span></span><br><span class="line">spider = Spider()</span><br><span class="line">spider.savePagesInfo(<span class="number">1</span>,<span class="number">71</span>)</span><br><span class="line">tool = Tools()</span><br><span class="line">totalJSON =&#123;&#125;</span><br><span class="line"><span class="comment">#设置年份,3代表2003年</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>,<span class="number">16</span>):</span><br><span class="line">year = <span class="string">''</span></span><br><span class="line"><span class="keyword">if</span> i &lt; <span class="number">10</span> :</span><br><span class="line">year = <span class="string">'200'</span> + str(i)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">year = <span class="string">'20'</span> + str(i)</span><br><span class="line">tool.saveNewJSONSInfo(year,<span class="number">1</span>,<span class="number">12</span>,spider.JSONMP3)</span><br><span class="line">totalJSON.setdefault(year,tool.JSONFile)</span><br><span class="line"><span class="comment">#保存JSON文件到当前文件夹</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">tool.store(year,totalJSON)</span><br></pre></td></tr></table></figure>
+<p><img src="http://ww1.sinaimg.cn/large/5e999b55gw1f48xhpl4ang20kx0hvnil.gif" alt="此处输入图片的描述"><br>大功告成！然后将导出的JSON文件导入到wilddog。<br>接下来的工作就是整个APP，LoveqSwift项目的构建了。<br>最后附上github：<a href="http://t.cn/R5AVbTH" target="_blank" rel="external">http://t.cn/R5AVbTH</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift/" rel="tag">#Swift</a>
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/02/Swift学习笔记（三）/" rel="next" title="Swift学习笔记（三）">
+                <i class="fa fa-chevron-left"></i> Swift学习笔记（三）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/26/LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息/"
+           data-title="LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息" data-url="http://www.xayoung.cn/2016/05/26/LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/myme.jpg"
+               alt="xayoung" />
+          <p class="site-author-name" itemprop="name">xayoung</p>
+          <p class="site-description motion-element" itemprop="description">Stay hungry,Stay foolish.--Steve Jobs</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/xayoung" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/xayoung" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缘由"><span class="nav-number">2.</span> <span class="nav-text">缘由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动工"><span class="nav-number">3.</span> <span class="nav-text">动工</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#抓取界面信息"><span class="nav-number">3.1.</span> <span class="nav-text">抓取界面信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抓取当前页所有节目"><span class="nav-number">3.2.</span> <span class="nav-text">抓取当前页所有节目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳转下载页面获取真正下载地址"><span class="nav-number">3.3.</span> <span class="nav-text">跳转下载页面获取真正下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类保存所有节目数据"><span class="nav-number">3.4.</span> <span class="nav-text">分类保存所有节目数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具类"><span class="nav-number">3.5.</span> <span class="nav-text">工具类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let’s-go"><span class="nav-number">3.6.</span> <span class="nav-text">Let’s go</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xayoung</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xayoung"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("8WgDNtCpaKrFRQrg5MzGGT1y-gzGzoHsz", "D3HTCEDiVuFaaMcW9rFjrkOf");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+
+</body>
+</html>
