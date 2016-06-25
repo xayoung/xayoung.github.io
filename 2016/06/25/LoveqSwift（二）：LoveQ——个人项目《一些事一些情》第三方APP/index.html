@@ -59,16 +59,28 @@
 
 
 
-<meta name="description" content="测试">
+<meta name="description" content="前言上一篇博文已经描述了怎么拿到所有节目的信息，这里简单总结下使用Swift语言写LoveQ iOS客户端的基本框架，有BUG和建议可以在评论中指出。
+
+界面LoveQ使用了DrawerController这款第三方控件作为主框架，centerViewController为音乐播放器，左划弹出的rightViewController为下载完成的节目列表，右话弹出的leftViewControlle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP">
+<meta property="og:title" content="LoveqSwift（二）：LoveQ——个人项目《一些事一些情》iOS客户端 BUG & 建议">
 <meta property="og:url" content="http://www.xayoung.cn/2016/06/25/LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP/index.html">
 <meta property="og:site_name" content="Coder X | 分享coding的乐趣">
-<meta property="og:description" content="测试">
-<meta property="og:updated_time" content="2016-06-25T02:33:50.000Z">
+<meta property="og:description" content="前言上一篇博文已经描述了怎么拿到所有节目的信息，这里简单总结下使用Swift语言写LoveQ iOS客户端的基本框架，有BUG和建议可以在评论中指出。
+
+界面LoveQ使用了DrawerController这款第三方控件作为主框架，centerViewController为音乐播放器，左划弹出的rightViewController为下载完成的节目列表，右话弹出的leftViewControlle">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/5e999b55gw1f57gs1777sj20hs0vkq5i.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/5e999b55gw1f57gfxlqdnj20ku112jsi.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f57ggmpm0cj20ku112abh.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/5e999b55gw1f57gig2u59j20ku112jty.jpg">
+<meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f57gnx1mv7j20kv0didgh.jpg">
+<meta property="og:updated_time" content="2016-06-25T06:43:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP">
-<meta name="twitter:description" content="测试">
+<meta name="twitter:title" content="LoveqSwift（二）：LoveQ——个人项目《一些事一些情》iOS客户端 BUG & 建议">
+<meta name="twitter:description" content="前言上一篇博文已经描述了怎么拿到所有节目的信息，这里简单总结下使用Swift语言写LoveQ iOS客户端的基本框架，有BUG和建议可以在评论中指出。
+
+界面LoveQ使用了DrawerController这款第三方控件作为主框架，centerViewController为音乐播放器，左划弹出的rightViewController为下载完成的节目列表，右话弹出的leftViewControlle">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/5e999b55gw1f57gs1777sj20hs0vkq5i.jpg">
 
 
 
@@ -86,7 +98,7 @@
   };
 </script>
 
-<title> LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP | Coder X | 分享coding的乐趣 </title>
+<title> LoveqSwift（二）：LoveQ——个人项目《一些事一些情》iOS客户端 BUG & 建议 | Coder X | 分享coding的乐趣 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +268,7 @@
             
             
               
-                LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP
+                LoveqSwift（二）：LoveQ——个人项目《一些事一些情》iOS客户端 BUG & 建议
               
             
           </h1>
@@ -309,7 +321,7 @@
 
           
           
-             <span id="/2016/06/25/LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP/" class="leancloud_visitors" data-flag-title="LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP">
+             <span id="/2016/06/25/LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP/" class="leancloud_visitors" data-flag-title="LoveqSwift（二）：LoveQ——个人项目《一些事一些情》iOS客户端 BUG & 建议">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -330,7 +342,14 @@
       
 
       
-        <p>测试</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇博文已经描述了怎么拿到所有节目的信息，这里简单总结下使用Swift语言写LoveQ iOS客户端的基本框架，有BUG和建议可以在评论中指出。<br><img src="http://ww3.sinaimg.cn/large/5e999b55gw1f57gs1777sj20hs0vkq5i.jpg" alt="此处输入图片的描述"></p>
+<hr>
+<h1 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h1><p>LoveQ使用了<a href="https://github.com/sascha/DrawerController" target="_blank" rel="external">DrawerController</a>这款第三方控件作为主框架，centerViewController为音乐播放器，左划弹出的rightViewController为下载完成的节目列表，右话弹出的leftViewController为菜单页，可以跳转到其他ViewController，轻量级，不进行多次跳转等深层级操作即可实现大部分页面的跳转。<br><img src="http://ww1.sinaimg.cn/large/5e999b55gw1f57gfxlqdnj20ku112jsi.jpg" alt="此处输入图片的描述"></p>
+<p>音乐播放器页面采用了水波纹的动态效果<br><img src="http://ww2.sinaimg.cn/large/5e999b55gw1f57ggmpm0cj20ku112abh.jpg" alt="此处输入图片的描述"></p>
+<p>节目列表设置了cell的渐变色<br><img src="http://ww1.sinaimg.cn/large/5e999b55gw1f57gig2u59j20ku112jty.jpg" alt="此处输入图片的描述"></p>
+<hr>
+<h1 id="后台"><a href="#后台" class="headerlink" title="后台"></a>后台</h1><p>使用<a href="https://www.wilddog.com" target="_blank" rel="external">wilddong</a>作为数据存储,闪电上手<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ref = <span class="type">Wilddog</span>(url: <span class="type">LoveqConfig</span>.<span class="type">WilddogURL</span> + <span class="string">"index/programIndex"</span>)</span><br><span class="line">ref.observeEventType(.<span class="type">Value</span>, withBlock: &#123; snapshot <span class="keyword">in</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://ww2.sinaimg.cn/large/5e999b55gw1f57gnx1mv7j20kv0didgh.jpg" alt="此处输入图片的描述"></h2><h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>采用信鸽推送实现更新通知，3D Touch实现快速进入、分享，使用<a href="https://github.com/nixzhu/MonkeyKing" target="_blank" rel="external">MonkeyKing</a>实现分享到微信/朋友圈，更多的详见APP。</p>
 
       
     </div>
@@ -389,7 +408,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/06/25/LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP/"
-           data-title="LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP" data-url="http://www.xayoung.cn/2016/06/25/LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP/">
+           data-title="LoveqSwift（二）：LoveQ——个人项目《一些事一些情》iOS客户端 BUG & 建议" data-url="http://www.xayoung.cn/2016/06/25/LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP/">
       </div>
     
   </div>
@@ -510,7 +529,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#界面"><span class="nav-number">2.</span> <span class="nav-text">界面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后台"><span class="nav-number">3.</span> <span class="nav-text">后台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.1.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">4.</span> <span class="nav-text">其他</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
