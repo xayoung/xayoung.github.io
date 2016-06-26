@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xayoung.cn/"/>
-  <updated>2016-06-25T06:43:06.000Z</updated>
+  <updated>2016-06-26T03:56:31.000Z</updated>
   <id>http://www.xayoung.cn/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>LoveqSwift（二）：LoveQ——个人项目《一些事一些情》iOS客户端 BUG &amp; 建议</title>
+    <title>LoveqSwift（二）：LoveQ——个人项目《一些事一些情》iOS客户端 简介 &amp; BUG &amp; 建议</title>
     <link href="http://www.xayoung.cn/2016/06/25/LoveqSwift%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9ALoveQ%E2%80%94%E2%80%94%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE%E3%80%8A%E4%B8%80%E4%BA%9B%E4%BA%8B%E4%B8%80%E4%BA%9B%E6%83%85%E3%80%8B%E7%AC%AC%E4%B8%89%E6%96%B9APP/"/>
     <id>http://www.xayoung.cn/2016/06/25/LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP/</id>
     <published>2016-06-25T02:30:21.000Z</published>
-    <updated>2016-06-25T06:43:06.000Z</updated>
+    <updated>2016-06-26T03:56:31.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一篇博文已经描述了怎么拿到所有节目的信息，这里简单总结下使用Swift语言写LoveQ iOS客户端的基本框架，有BUG和建议可以在评论中指出。&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/5e999b55gw1f57gs1777sj20hs0vkq5i.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
 &lt;hr&gt;
@@ -93,9 +93,9 @@
     
       <category term="Swift" scheme="http://www.xayoung.cn/tags/Swift/"/>
     
-      <category term="Python" scheme="http://www.xayoung.cn/tags/Python/"/>
-    
       <category term="iOS" scheme="http://www.xayoung.cn/tags/iOS/"/>
+    
+      <category term="Python" scheme="http://www.xayoung.cn/tags/Python/"/>
     
   </entry>
   
