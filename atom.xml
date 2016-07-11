@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xayoung.cn/"/>
-  <updated>2016-06-26T03:56:31.000Z</updated>
+  <updated>2016-07-11T13:29:28.000Z</updated>
   <id>http://www.xayoung.cn/</id>
   
   <author>
@@ -16,16 +16,16 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>LoveqSwift（二）：LoveQ——个人项目《一些事一些情》iOS客户端 简介 &amp; BUG &amp; 建议</title>
+    <title>LoveqSwift（二）：个人项目《一些事一些情》iOS客户端 简介 &amp; BUG &amp; 建议</title>
     <link href="http://www.xayoung.cn/2016/06/25/LoveqSwift%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9ALoveQ%E2%80%94%E2%80%94%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE%E3%80%8A%E4%B8%80%E4%BA%9B%E4%BA%8B%E4%B8%80%E4%BA%9B%E6%83%85%E3%80%8B%E7%AC%AC%E4%B8%89%E6%96%B9APP/"/>
     <id>http://www.xayoung.cn/2016/06/25/LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP/</id>
     <published>2016-06-25T02:30:21.000Z</published>
-    <updated>2016-06-26T03:56:31.000Z</updated>
+    <updated>2016-07-11T13:29:28.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;上一篇博文已经描述了怎么拿到所有节目的信息，这里简单总结下使用Swift语言写LoveQ iOS客户端的基本框架，有BUG和建议可以在评论中指出。&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/5e999b55gw1f57gs1777sj20hs0vkq5i.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h1 id=&quot;界面&quot;&gt;&lt;a href=&quot;#界面&quot; class=&quot;headerlink&quot; title=&quot;界面&quot;&gt;&lt;/a&gt;界面&lt;/h1&gt;&lt;p&gt;LoveQ使用了&lt;a href=&quot;https://github.com/sascha/DrawerController&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;DrawerController&lt;/a&gt;这款第三方控件作为主框架，centerViewController为音乐播放器，左划弹出的rightViewController为下载完成的节目列表，右话弹出的leftViewController为菜单页，可以跳转到其他ViewController，轻量级，不进行多次跳转等深层级操作即可实现大部分页面的跳转。&lt;br&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/5e999b55gw1f57gfxlqdnj20ku112jsi.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
-&lt;p&gt;音乐播放器页面采用了水波纹的动态效果&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/5e999b55gw1f57ggmpm0cj20ku112abh.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;界面&quot;&gt;&lt;a href=&quot;#界面&quot; class=&quot;headerlink&quot; title=&quot;界面&quot;&gt;&lt;/a&gt;界面&lt;/h1&gt;&lt;p&gt;LoveQ使用了&lt;a href=&quot;https://github.com/sascha/DrawerController&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;DrawerController&lt;/a&gt;这款第三方控件作为主框架，centerViewController为音乐播放器，左划弹出的rightViewController为下载完成的节目列表，右话弹出的leftViewController为菜单页，可以跳转到其他ViewController，轻量级，不进行多次跳转等深层级操作即可实现大部分页面的跳转。&lt;br&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/006tNbRwgw1f5qafv8akqj30ku112q4u.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
+&lt;p&gt;音乐播放器页面采用了水波纹的动态效果&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/006tNbRwgw1f5qagwip8ij30ku112414.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
 &lt;p&gt;节目列表设置了cell的渐变色&lt;br&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/5e999b55gw1f57gig2u59j20ku112jty.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id=&quot;后台&quot;&gt;&lt;a href=&quot;#后台&quot; class=&quot;headerlink&quot; title=&quot;后台&quot;&gt;&lt;/a&gt;后台&lt;/h1&gt;&lt;p&gt;使用&lt;a href=&quot;https://www.wilddog.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;wilddong&lt;/a&gt;作为数据存储,闪电上手&lt;br&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; ref = &lt;span class=&quot;type&quot;&gt;Wilddog&lt;/span&gt;(url: &lt;span class=&quot;type&quot;&gt;LoveqConfig&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;WilddogURL&lt;/span&gt; + &lt;span class=&quot;string&quot;&gt;&quot;index/programIndex&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ref.observeEventType(.&lt;span class=&quot;type&quot;&gt;Value&lt;/span&gt;, withBlock: &amp;#123; snapshot &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
