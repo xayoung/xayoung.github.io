@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next muse use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -41,13 +41,13 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Swift,Python,iOS," />
+  <meta name="keywords" content="iOS,Swift,Python," />
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Coder X | 分享coding的乐趣" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Coder X" type="application/atom+xml" />
 
 
 
@@ -67,7 +67,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息">
 <meta property="og:url" content="http://www.xayoung.cn/2016/05/26/LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息/index.html">
-<meta property="og:site_name" content="Coder X | 分享coding的乐趣">
+<meta property="og:site_name" content="Coder X">
 <meta property="og:description" content="前言听《一些事一些情》已经十多年，近来通勤时间重温以往节目的时候发现，无论官方或民间的APP都或多或少有些遗憾，虽然也是个重复造轮子的活，但是自己动手写一个或许会更有乐趣呢。
 
 缘由首先，开发一款音乐播放器的移动APP，我们得有api才可以展示数据，下载音频文件，最终播放节目。如何获取到每一期节目的数据呢？
@@ -89,7 +89,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"always"},
     fancybox: true,
     motion: true,
@@ -100,7 +100,7 @@
   };
 </script>
 
-<title> LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息 | Coder X | 分享coding的乐趣 </title>
+<title> LoveqSwift（一）：Python爬虫抓取loveq.cn所有节目信息 | Coder X </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -141,7 +141,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Coder X | 分享coding的乐趣</span>
+      <span class="site-title">Coder X</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -352,7 +352,7 @@
 <li>方案二<br>通过APP内部加载单页web，获取网页源代码后，通过正则表达式提取节目信息以及下载链接并展示。但，经过测试后发现，此方案会有比较严重的性能问题，加载时间过久，用户体验较差，pass。（以下为两种加载web方式的测试代码）</li>
 </ul>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//下标截取，蠢方法一</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">subWebstring</span><span class="params">(HTMLSource: [String?])</span></span> -&gt; <span class="type">Array</span>&lt;<span class="type">AnyObject</span>&gt;  &#123;</span><br><span class="line"><span class="keyword">let</span> reg = <span class="keyword">try</span>! <span class="type">NSRegularExpression</span>.<span class="keyword">init</span>(pattern: parten, options: .<span class="type">CaseInsensitive</span>)</span><br><span class="line"><span class="keyword">let</span> <span class="type">HTML</span> = <span class="type">HTMLSource</span>[<span class="number">0</span>]! <span class="keyword">as</span> <span class="type">NSString</span></span><br><span class="line"><span class="keyword">let</span> array0 = <span class="type">HTML</span>.componentsSeparatedByString(<span class="string">"节目名称&lt;/dt&gt;"</span>)</span><br><span class="line"><span class="keyword">let</span> <span class="type">HTML2</span> = array0[<span class="number">1</span>] <span class="keyword">as</span> <span class="type">NSString</span></span><br><span class="line"><span class="keyword">let</span> array = reg.matchesInString(<span class="type">HTML2</span> <span class="keyword">as</span> <span class="type">String</span>, options: .<span class="type">ReportCompletion</span>, range: <span class="type">NSMakeRange</span>(<span class="number">0</span>, <span class="type">HTML2</span>.length))</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> data = <span class="type">Array</span>&lt;<span class="type">AnyObject</span>&gt;()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> match: <span class="type">NSTextCheckingResult</span> <span class="keyword">in</span> array &#123;</span><br><span class="line"><span class="keyword">let</span> range = match.range</span><br><span class="line"><span class="keyword">let</span> string: <span class="type">String</span> = <span class="type">HTML2</span>.substringWithRange(range)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> s1 = (string <span class="keyword">as</span> <span class="type">NSString</span>).substringWithRange(<span class="type">NSMakeRange</span>(<span class="number">9</span>, <span class="number">26</span>))</span><br><span class="line"><span class="keyword">let</span> s2 = (string <span class="keyword">as</span> <span class="type">NSString</span>).substringWithRange(<span class="type">NSMakeRange</span>(<span class="number">173</span>, <span class="number">13</span>))</span><br><span class="line"><span class="keyword">let</span> s3 = (string <span class="keyword">as</span> <span class="type">NSString</span>).substringWithRange(<span class="type">NSMakeRange</span>(<span class="number">167</span>, <span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> ns3 = [<span class="string">"url"</span>:s1, <span class="string">"title"</span>:s2, <span class="string">"format"</span>:s3]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = <span class="type">Mapper</span>&lt;<span class="type">ProgrammerListModel</span>&gt;().<span class="built_in">map</span>(ns3)</span><br><span class="line">data.append(user!)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> data</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用第三方框架Fuzi</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Fuzi</span><span class="params">(HTMLSource: [String?])</span></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> html = <span class="type">HTMLSource</span>[<span class="number">0</span>]!</span><br><span class="line"><span class="keyword">let</span> program = <span class="string">"program_download"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line"><span class="keyword">let</span> doc = <span class="keyword">try</span>! <span class="type">HTMLDocument</span>(string: html, encoding: <span class="type">NSUTF8StringEncoding</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> doc.css(<span class="string">"a, link"</span>) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> str: <span class="type">String</span>? = link[<span class="string">"href"</span>]</span><br><span class="line"><span class="keyword">if</span> str != <span class="literal">nil</span> &amp;&amp; str!.containsString(program) &#123;</span><br><span class="line"><span class="built_in">print</span>(link[<span class="string">"href"</span>])</span><br><span class="line"><span class="keyword">if</span> !urlSource.<span class="built_in">contains</span>(str!) &#123;</span><br><span class="line"><span class="keyword">if</span> str!.hasPrefix(program) &#123;</span><br><span class="line">urlSource.append(str!)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(urlSource)</span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> doc.css(<span class="string">"span"</span>) &#123;</span><br><span class="line"><span class="keyword">let</span> s = link.stringValue <span class="keyword">as</span> <span class="type">NSString</span></span><br><span class="line"><span class="keyword">if</span> s.length &gt; <span class="number">0</span> &#123;</span><br><span class="line"><span class="keyword">let</span> s1 = (s <span class="keyword">as</span> <span class="type">NSString</span>).substringToIndex(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">if</span> s1 == <span class="string">"【"</span> &#123;</span><br><span class="line"><span class="built_in">print</span>(s)</span><br><span class="line">dataSource.append(s)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> result = doc.eval(xpath: <span class="string">"count(/*/a)"</span>) &#123;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"anchor count : <span class="subst">\(result.doubleValue)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(urlSource)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用第三方框架Fuzi</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Fuzi</span><span class="params">(HTMLSource: [String?])</span></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> html = <span class="type">HTMLSource</span>[<span class="number">0</span>]!</span><br><span class="line"><span class="keyword">let</span> program = <span class="string">"program_download"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line"><span class="keyword">let</span> doc = <span class="keyword">try</span>! <span class="type">HTMLDocument</span>(string: html, encoding: <span class="type">NSUTF8StringEncoding</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> doc.css(<span class="string">"a, link"</span>) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> str: <span class="type">String</span>? = link[<span class="string">"href"</span>]</span><br><span class="line"><span class="keyword">if</span> str != <span class="literal">nil</span> &amp;&amp; str!.containsString(program) &#123;</span><br><span class="line"><span class="built_in">print</span>(link[<span class="string">"href"</span>])</span><br><span class="line"><span class="keyword">if</span> !urlSource.<span class="built_in">contains</span>(str!) &#123;</span><br><span class="line"><span class="keyword">if</span> str!.hasPrefix(program) &#123;</span><br><span class="line">urlSource.append(str!)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(urlSource)</span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> doc.css(<span class="string">"span"</span>) &#123;</span><br><span class="line"><span class="keyword">let</span> s = link.stringValue <span class="keyword">as</span> <span class="type">NSString</span></span><br><span class="line"><span class="keyword">if</span> s.length &gt; <span class="number">0</span> &#123;</span><br><span class="line"><span class="keyword">let</span> s1 = (s <span class="keyword">as</span> <span class="type">NSString</span>).substringToIndex(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">if</span> s1 == <span class="string">"【"</span> &#123;</span><br><span class="line"><span class="built_in">print</span>(s)</span><br><span class="line">dataSource.append(s)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> result = doc.eval(xpath: <span class="string">"count(/*/a)"</span>) &#123;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"anchor count : \(result.doubleValue)"</span>)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">print</span>(urlSource)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>方案三<br>通过抓取官网所有的节目信息和下载地址，自己搭建服务器提供api。此方案要实行对于个人来说有两个难点：1.怎么抓取一千多期节目的数据；2.怎么搭建服务器并提供接口。经过分析各种方案后，第一点可以通过Python爬虫解决，第二点，因后端知识树暂时没点，所以暂时使用实时云服务来替代。一开始是目标为<a href="https://www.firebase.com/" target="_blank" rel="external">firebase</a>，试用后发现，Google收购它后，慢慢添加Google一些服务接口进去了，由于众所周知的原因，最终选用了墙内的<a href="https://www.wilddog.com/" target="_blank" rel="external">wilddog</a>。</li>
 </ul>
@@ -384,11 +384,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
             <a href="/tags/Swift/" rel="tag">#Swift</a>
           
             <a href="/tags/Python/" rel="tag">#Python</a>
-          
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
         </div>
       
@@ -591,7 +591,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 

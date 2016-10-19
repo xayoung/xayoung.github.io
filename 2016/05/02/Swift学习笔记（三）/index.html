@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next muse use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -47,7 +47,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Coder X | 分享coding的乐趣" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="Coder X" type="application/atom+xml" />
 
 
 
@@ -64,7 +64,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift学习笔记（三）">
 <meta property="og:url" content="http://www.xayoung.cn/2016/05/02/Swift学习笔记（三）/index.html">
-<meta property="og:site_name" content="Coder X | 分享coding的乐趣">
+<meta property="og:site_name" content="Coder X">
 <meta property="og:description" content="继承
 一个类可以继承（inherit）另一个类的方法（methods），属性（properties）和其它特性。当一个类继承其它类时，继承类叫子类（subclass），被继承类叫超类（或父类，superclass）。在 Swift 中，继承是区分「类」与其它类型的一个基本特征。在 Swift 中，类可以调用和访问超类的方法，属性和下标（subscripts），并且可以重写（override）这些方">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f3gwzfornwg20l90fxjzb.gif">
@@ -80,7 +80,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
+    scheme: 'Muse',
     sidebar: {"position":"left","display":"always"},
     fancybox: true,
     motion: true,
@@ -91,7 +91,7 @@
   };
 </script>
 
-<title> Swift学习笔记（三） | Coder X | 分享coding的乐趣 </title>
+<title> Swift学习笔记（三） | Coder X </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -132,7 +132,7 @@
   <div class="custom-logo-site-title">
     <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Coder X | 分享coding的乐趣</span>
+      <span class="site-title">Coder X</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -342,7 +342,7 @@
 <h2 id="父类"><a href="#父类" class="headerlink" title="父类"></a>父类</h2><blockquote>
 <p>不继承于其它类的类，称之为基类（base class）。注意:Swift 中的类并不是从一个通用的基类继承而来。如果你不为你定义的类指定一个超类的话，这个类就自动成为基类。</p>
 </blockquote>
-<p>这里的控制器继承于UIViewController<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HappinessViewController</span>: <span class="title">UIViewController</span>, <span class="title">FaceViewDataSource</span> </span>&#123;</span><br><span class="line">......</span><br><span class="line"><span class="keyword">var</span> happiness: <span class="type">Int</span>  = <span class="number">10</span> &#123;</span><br><span class="line"><span class="keyword">didSet</span>&#123;</span><br><span class="line">happiness = <span class="built_in">min</span>(<span class="built_in">max</span>(happiness, <span class="number">0</span>), <span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"happiness = <span class="subst">\(happiness)</span>"</span>)</span><br><span class="line">updateUI()</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">updateUI</span><span class="params">()</span></span> &#123;</span><br><span class="line">faceView?.setNeedsDisplay()</span><br><span class="line">title = <span class="string">"<span class="subst">\(happiness)</span>"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">smilinessForFaceView</span><span class="params">(sender: FaceView)</span></span> -&gt; <span class="type">Double</span>? &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="type">Double</span>(happiness - <span class="number">50</span>)/<span class="number">50</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里的控制器继承于UIViewController<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HappinessViewController</span>: <span class="title">UIViewController</span>, <span class="title">FaceViewDataSource</span> </span>&#123;</span><br><span class="line">......</span><br><span class="line"><span class="keyword">var</span> happiness: <span class="type">Int</span>  = <span class="number">10</span> &#123;</span><br><span class="line"><span class="keyword">didSet</span>&#123;</span><br><span class="line">happiness = <span class="built_in">min</span>(<span class="built_in">max</span>(happiness, <span class="number">0</span>), <span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"happiness = \(happiness)"</span>)</span><br><span class="line">updateUI()</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">updateUI</span><span class="params">()</span></span> &#123;</span><br><span class="line">faceView?.setNeedsDisplay()</span><br><span class="line">title = <span class="string">"\(happiness)"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">smilinessForFaceView</span><span class="params">(sender: FaceView)</span></span> -&gt; <span class="type">Double</span>? &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="type">Double</span>(happiness - <span class="number">50</span>)/<span class="number">50</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
 <h2 id="子类"><a href="#子类" class="headerlink" title="子类"></a>子类</h2><blockquote>
 <p>子类生成（Subclassing）指的是在一个已有类的基础上创建一个新的类。子类继承超类的特性，并且可以进一步完善。你还可以为子类添加新的特性。</p>
@@ -577,7 +577,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Muse
   </a>
 </div>
 
