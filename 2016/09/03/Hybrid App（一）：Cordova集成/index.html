@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hardware,Openwrt," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -59,30 +59,28 @@
 
 
 
-<meta name="description" content="安装好博客之后就可以开始通过192.168.1.1:82访问博客了，但是如何让外网也可以访问网站呢？这时候就需要绑定域名和动态DNS了。
-注册专属的域名（免费的二级域名有很多，比如f3322、花生壳等，这里选用花生壳）
-DNS解析可以先手动填写本机的外网ip到记录值处，测试能否ping成功。然后进入路由器动态dns管理界面，将刚刚注册的域名以及用户密码如下图填写。
-端口设置进入路由器-网络-防火墙">
+<meta name="description" content="前言项目技术预研Hybrid相关技术，查阅资料实践后记录下Cordova集成的过程。
+概述Cordova: http://cordova.apache.org/
+
+Apache Cordova is an open-source mobile development framework. It allows you to use standard web technologies such as">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于路由器的博客：（三）域名、动态DNS设置">
-<meta property="og:url" content="http://www.xayoung.cn/2015/03/30/Breaker固件3/index.html">
+<meta property="og:title" content="Hybrid App（一）：Cordova集成">
+<meta property="og:url" content="http://www.xayoung.cn/2016/09/03/Hybrid App（一）：Cordova集成/index.html">
 <meta property="og:site_name" content="Coder X | 分享coding的乐趣">
-<meta property="og:description" content="安装好博客之后就可以开始通过192.168.1.1:82访问博客了，但是如何让外网也可以访问网站呢？这时候就需要绑定域名和动态DNS了。
-注册专属的域名（免费的二级域名有很多，比如f3322、花生壳等，这里选用花生壳）
-DNS解析可以先手动填写本机的外网ip到记录值处，测试能否ping成功。然后进入路由器动态dns管理界面，将刚刚注册的域名以及用户密码如下图填写。
-端口设置进入路由器-网络-防火墙">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/5e999b55gw1ewi5d6mbhhj20p70cg75o.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/5e999b55jw1ewi5hesombj20iw0kzach.jpg">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1ewi5kmj1q8j20l90k2jsc.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/large/5e999b55gw1ewi5p4yxu9j20vj0meaeg.jpg">
-<meta property="og:updated_time" content="2016-03-22T13:06:18.000Z">
+<meta property="og:description" content="前言项目技术预研Hybrid相关技术，查阅资料实践后记录下Cordova集成的过程。
+概述Cordova: http://cordova.apache.org/
+
+Apache Cordova is an open-source mobile development framework. It allows you to use standard web technologies such as">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/965192-6f989b735372c194.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/5e999b55gw1f8xm8x36y5j20bc0aeaau.jpg">
+<meta property="og:updated_time" content="2016-10-19T11:47:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于路由器的博客：（三）域名、动态DNS设置">
-<meta name="twitter:description" content="安装好博客之后就可以开始通过192.168.1.1:82访问博客了，但是如何让外网也可以访问网站呢？这时候就需要绑定域名和动态DNS了。
-注册专属的域名（免费的二级域名有很多，比如f3322、花生壳等，这里选用花生壳）
-DNS解析可以先手动填写本机的外网ip到记录值处，测试能否ping成功。然后进入路由器动态dns管理界面，将刚刚注册的域名以及用户密码如下图填写。
-端口设置进入路由器-网络-防火墙">
-<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/5e999b55gw1ewi5d6mbhhj20p70cg75o.jpg">
+<meta name="twitter:title" content="Hybrid App（一）：Cordova集成">
+<meta name="twitter:description" content="前言项目技术预研Hybrid相关技术，查阅资料实践后记录下Cordova集成的过程。
+概述Cordova: http://cordova.apache.org/
+
+Apache Cordova is an open-source mobile development framework. It allows you to use standard web technologies such as">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/965192-6f989b735372c194.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -100,7 +98,7 @@ DNS解析可以先手动填写本机的外网ip到记录值处，测试能否pin
   };
 </script>
 
-<title> 基于路由器的博客：（三）域名、动态DNS设置 | Coder X | 分享coding的乐趣 </title>
+<title> Hybrid App（一）：Cordova集成 | Coder X | 分享coding的乐趣 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -270,7 +268,7 @@ DNS解析可以先手动填写本机的外网ip到记录值处，测试能否pin
             
             
               
-                基于路由器的博客：（三）域名、动态DNS设置
+                Hybrid App（一）：Cordova集成
               
             
           </h1>
@@ -282,8 +280,8 @@ DNS解析可以先手动填写本机的外网ip到记录值处，测试能否pin
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-03-30T18:02:18+08:00" content="2015-03-30">
-              2015-03-30
+            <time itemprop="dateCreated" datetime="2016-09-03T14:50:44+08:00" content="2016-09-03">
+              2016-09-03
             </time>
           </span>
 
@@ -296,8 +294,8 @@ DNS解析可以先手动填写本机的外网ip到记录值处，测试能否pin
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/硬件/" itemprop="url" rel="index">
-                    <span itemprop="name">硬件</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -312,8 +310,8 @@ DNS解析可以先手动填写本机的外网ip到记录值处，测试能否pin
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/03/30/Breaker固件3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/30/Breaker固件3/" itemprop="commentsCount"></span>
+                <a href="/2016/09/03/Hybrid App（一）：Cordova集成/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/Hybrid App（一）：Cordova集成/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -323,7 +321,7 @@ DNS解析可以先手动填写本机的外网ip到记录值处，测试能否pin
 
           
           
-             <span id="/2015/03/30/Breaker固件3/" class="leancloud_visitors" data-flag-title="基于路由器的博客：（三）域名、动态DNS设置">
+             <span id="/2016/09/03/Hybrid App（一）：Cordova集成/" class="leancloud_visitors" data-flag-title="Hybrid App（一）：Cordova集成">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -344,11 +342,59 @@ DNS解析可以先手动填写本机的外网ip到记录值处，测试能否pin
       
 
       
-        <p>安装好博客之后就可以开始通过192.168.1.1:82访问博客了，但是如何让外网也可以访问网站呢？<br>这时候就需要绑定域名和动态DNS了。</p>
-<h2 id="注册专属的域名"><a href="#注册专属的域名" class="headerlink" title="注册专属的域名"></a>注册专属的域名</h2><p>（免费的二级域名有很多，比如f3322、花生壳等，这里选用花生壳）<br><img src="http://ww3.sinaimg.cn/large/5e999b55gw1ewi5d6mbhhj20p70cg75o.jpg" alt="此处输入图片的描述"></p>
-<h2 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h2><p>可以先手动填写本机的外网ip到记录值处，测试能否ping成功。<br>然后进入路由器动态dns管理界面，将刚刚注册的域名以及用户密码如下图填写。<br><img src="http://ww3.sinaimg.cn/large/5e999b55jw1ewi5hesombj20iw0kzach.jpg" alt="此处输入图片的描述"></p>
-<h2 id="端口设置"><a href="#端口设置" class="headerlink" title="端口设置"></a>端口设置</h2><p>进入路由器-网络-防火墙<br>设置入站数据为接受<br><img src="http://ww2.sinaimg.cn/large/5e999b55gw1ewi5kmj1q8j20l90k2jsc.jpg" alt="此处输入图片的描述"></p>
-<h2 id="设置端口转发"><a href="#设置端口转发" class="headerlink" title="设置端口转发"></a>设置端口转发</h2><p>此处设置外部端口为82，内部端口为82（上一章设置的端口），在这里也可以设置访问路由器的端口，就能远程访问路由器了。<br><img src="http://ww3.sinaimg.cn/large/5e999b55gw1ewi5p4yxu9j20vj0meaeg.jpg" alt="此处输入图片的描述"></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>项目技术预研Hybrid相关技术，查阅资料实践后记录下Cordova集成的过程。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Cordova: <a href="http://cordova.apache.org/" target="_blank" rel="external">http://cordova.apache.org/</a></p>
+<blockquote>
+<p>Apache Cordova is an open-source mobile development framework. It allows you to use standard web technologies such as HTML5, CSS3, and JavaScript for cross-platform development, avoiding each mobile platforms’ native development language. Applications execute within wrappers targeted to each platform, and rely on standards-compliant API bindings to access each device’s sensors, data, and network status.<br>Use Apache Cordova if you are: a mobile developer interested in mixing native application components with aWebView(special browser window) that can access device-level APIs, or if you want to develop a plugin interface between native and WebView components.</p>
+</blockquote>
+<p>大意：Cordova 是开源的移动开发框架。可以使用标准的WEB技术进行跨平台的开发，避免了不同移动平台不同的开发语言重复边写。把能访问设备级 API 的 WebView 集成到 Native 应用中，或通过开发接口插件实现 navtive 和 WebView 组件之间的交互。在启用Cordova的WebView中，为应用提供了完整的用户接口。在某些平台中也可以作为一个嵌入在本地native应用的组件。</p>
+<h2 id="环境-amp-创建"><a href="#环境-amp-创建" class="headerlink" title="环境&amp;创建"></a>环境&amp;创建</h2><ul>
+<li>安装Node.js </li>
+</ul>
+<p><a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a></p>
+<ul>
+<li><p>终端输入如下命令 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  sudo npm install –g cordova</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>建立cordova项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$  cd Desktop/</span><br><span class="line">$  cordova create CordovaDemo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加入iOS项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$  cd CordovaDemo/</span><br><span class="line">$  cordova platform add ios</span><br><span class="line"></span><br><span class="line">Adding ios project...</span><br><span class="line">Creating Cordova project for the iOS platform:</span><br><span class="line">Path: platforms/ios</span><br><span class="line">Package: io.cordova.hellocordova</span><br><span class="line">Name: HelloCordova</span><br><span class="line">iOS project created with cordova-ios@4.2.1</span><br><span class="line">Discovered plugin &quot;cordova-plugin-whitelist&quot; in config.xml. Adding it to the project</span><br><span class="line">Fetching plugin &quot;cordova-plugin-whitelist@1&quot; via npm</span><br><span class="line">Installing &quot;cordova-plugin-whitelist&quot; for ios</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示已经安装的平台项目以及可安装的平台</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$  cordova  platform ls   </span><br><span class="line">Installed platforms:</span><br><span class="line">ios 4.2.1</span><br><span class="line">Available platforms: </span><br><span class="line">amazon-fireos ~3.6.3 (deprecated)</span><br><span class="line">android ~5.2.0</span><br><span class="line">blackberry10 ~3.8.0</span><br><span class="line">browser ~4.1.0</span><br><span class="line">firefoxos ~3.6.3</span><br><span class="line">osx ~4.0.1</span><br><span class="line">webos ~3.7.0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>build iOS项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ cordova build ios</span><br><span class="line"></span><br><span class="line">Building project: /Users/xjy/Desktop/test/Demo/platforms/ios/HelloCordova.xcodeproj</span><br><span class="line">Configuration: Debug</span><br><span class="line">Platform: emulator</span><br><span class="line">Build settings from command line:</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Xcode 打开项目运行<br><img src="http://upload-images.jianshu.io/upload_images/965192-6f989b735372c194.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="此处输入图片的描述"></p>
+</li>
+</ul>
+<h2 id="已有的Native项目中加入Cordova"><a href="#已有的Native项目中加入Cordova" class="headerlink" title="已有的Native项目中加入Cordova"></a>已有的Native项目中加入Cordova</h2><ul>
+<li><p>拷贝Cordova相关文件（路径：cordovaDemo/platforms/ios）到House目录下，拷贝后目录结构如下<br>-<img src="http://ww1.sinaimg.cn/large/5e999b55gw1f8xm8x36y5j20bc0aeaau.jpg" alt="此处输入图片的描述"></p>
+</li>
+<li><p>CordovaLib.xcodeproj添加到House工程中，右键选择Add Files To House</p>
+</li>
+<li><p>添加www目录到工程中，记得是勾选Create folder references</p>
+</li>
+<li><p>config.xml添加到Demo工程中，右键选择Add Files To Demo(路径：cordovaDemo/platforms/ios/CordovaDemo/config.xml )</p>
+</li>
+<li><p>Build Settings-&gt;Other Links, 设置-Objc -all_load</p>
+</li>
+<li><p>Build Phases-&gt;Target Dependencies添加CordovaLib</p>
+</li>
+<li><p>Link Binary With Librarys添加libCordova.a, MobileCoreServices,AssetsLibrary</p>
+</li>
+<li><p>command + B编译通过</p>
+</li>
+<li><p>www文件夹放入对应的文件</p>
+</li>
+<li><p>调用CDVViewController</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;Cordova/CDVViewController.h&gt;</span><br><span class="line"></span><br><span class="line">//action</span><br><span class="line">CDVViewController* vc = [CDVViewController new];</span><br><span class="line">vc.hidesBottomBarWhenPushed = YES;</span><br><span class="line">[self.navigationController pushViewController:vc animated:YES];</span><br></pre></td></tr></table></figure>
+<p>下一章记录一下插件开发的相关流程</p>
 
       
     </div>
@@ -363,9 +409,7 @@ DNS解析可以先手动填写本机的外网ip到记录值处，测试能否pin
       
         <div class="post-tags">
           
-            <a href="/tags/Hardware/" rel="tag">#Hardware</a>
-          
-            <a href="/tags/Openwrt/" rel="tag">#Openwrt</a>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
         </div>
       
@@ -374,16 +418,16 @@ DNS解析可以先手动填写本机的外网ip到记录值处，测试能否pin
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/25/Breaker固件2/" rel="next" title="基于路由器的博客：（二）搭建nginx+php+mysql环境">
-                <i class="fa fa-chevron-left"></i> 基于路由器的博客：（二）搭建nginx+php+mysql环境
+              <a href="/2016/06/25/LoveqSwift（二）：LoveQ——个人项目《一些事一些情》第三方APP/" rel="next" title="LoveqSwift（二）：个人项目《一些事一些情》iOS客户端 简介 & BUG & 建议">
+                <i class="fa fa-chevron-left"></i> LoveqSwift（二）：个人项目《一些事一些情》iOS客户端 简介 & BUG & 建议
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/22/iOS UITableviewWrapperView偏移问题/" rel="prev" title="iOS UITableviewWrapperView偏移问题">
-                iOS UITableviewWrapperView偏移问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/20/Hybrid App（二）：Cordova插件开发/" rel="prev" title="Hybrid App（二）：Cordova插件开发">
+                Hybrid App（二）：Cordova插件开发 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -410,8 +454,8 @@ DNS解析可以先手动填写本机的外网ip到记录值处，测试能否pin
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/03/30/Breaker固件3/"
-           data-title="基于路由器的博客：（三）域名、动态DNS设置" data-url="http://www.xayoung.cn/2015/03/30/Breaker固件3/">
+      <div class="ds-thread" data-thread-key="2016/09/03/Hybrid App（一）：Cordova集成/"
+           data-title="Hybrid App（一）：Cordova集成" data-url="http://www.xayoung.cn/2016/09/03/Hybrid App（一）：Cordova集成/">
       </div>
     
   </div>
@@ -532,7 +576,7 @@ DNS解析可以先手动填写本机的外网ip到记录值处，测试能否pin
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#注册专属的域名"><span class="nav-number">1.</span> <span class="nav-text">注册专属的域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DNS解析"><span class="nav-number">2.</span> <span class="nav-text">DNS解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口设置"><span class="nav-number">3.</span> <span class="nav-text">端口设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置端口转发"><span class="nav-number">4.</span> <span class="nav-text">设置端口转发</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境-amp-创建"><span class="nav-number">3.</span> <span class="nav-text">环境&创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#已有的Native项目中加入Cordova"><span class="nav-number">4.</span> <span class="nav-text">已有的Native项目中加入Cordova</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

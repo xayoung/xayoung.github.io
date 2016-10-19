@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.xayoung.cn/"/>
-  <updated>2016-07-11T13:29:28.000Z</updated>
+  <updated>2016-10-19T11:46:59.000Z</updated>
   <id>http://www.xayoung.cn/</id>
   
   <author>
@@ -14,6 +14,123 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hybrid App（二）：Cordova插件开发</title>
+    <link href="http://www.xayoung.cn/2016/09/20/Hybrid%20App%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9ACordova%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/"/>
+    <id>http://www.xayoung.cn/2016/09/20/Hybrid App（二）：Cordova插件开发/</id>
+    <published>2016-09-20T09:50:44.000Z</published>
+    <updated>2016-10-19T11:46:59.000Z</updated>
+    
+    <content type="html">&lt;p&gt;上一章已经将Cordova集成进我们的项目中去了，下面我们创建插件来扩展使用场景。&lt;/p&gt;
+&lt;h2 id=&quot;创建Plugin插件&quot;&gt;&lt;a href=&quot;#创建Plugin插件&quot; class=&quot;headerlink&quot; title=&quot;创建Plugin插件&quot;&gt;&lt;/a&gt;创建Plugin插件&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;新建文件夹Plugins,并添加进项目中&lt;br&gt;&lt;img src=&quot;http://ww3.sinaimg.cn/large/5e999b55gw1f8xowkt5uij20cy090mxv.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/li&gt;
+&lt;li&gt;在Plugins中，commend + N 新建继承CDVPlugin的TestPlugin插件 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;.h&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#import &amp;lt;Cordova/CDV.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@interface TestPlugin : CDVPlugin&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (void)test:(CDVInvokedUrlCommand*)command;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;.m&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#import &amp;quot;TestPlugin.h&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#import &amp;lt;Cordova/CDV.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@implementation TestPlugin&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NetWorkManager *manager;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (void)test:(CDVInvokedUrlCommand*)command&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;DLog(@&amp;quot;%@&amp;quot;,command.arguments);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;manager = [NetWorkManager sharedNetWorkManager];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[self loadNewData:command];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;- (void) loadNewData:(CDVInvokedUrlCommand*)command&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;   //网络请求，将传递过来的第一个参数作为网络请求的参数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[manager networkHealthInfoAll:command.arguments[0] ...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;CDVPluginResult* pluginResult = nil;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//要传递回去的参数，responDict为网络请求回来的数据&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NSDictionary * ret = @&amp;#123;@&amp;quot;success&amp;quot;:@&amp;quot;1&amp;quot;,@&amp;quot;message&amp;quot;:@&amp;quot;参数不为空&amp;quot;,@&amp;quot;code&amp;quot;:@(200),@&amp;quot;data&amp;quot;:responDict&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:ret];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;写入配置文件&quot;&gt;&lt;a href=&quot;#写入配置文件&quot; class=&quot;headerlink&quot; title=&quot;写入配置文件&quot;&gt;&lt;/a&gt;写入配置文件&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;打开文件夹下的config.xml文件，在widget标签下输入：&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;feature name=&amp;quot;TestPlugin&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;param name=&amp;quot;ios-package&amp;quot; value=&amp;quot;TestPlugin&amp;quot; /&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/feature&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;此时Cordova可以找到插件，完成JavaScript和Objective C的桥接，现在可以使用JavaScript来调用TestPlugin插件了&lt;/p&gt;
+&lt;h2 id=&quot;调用插件&quot;&gt;&lt;a href=&quot;#调用插件&quot; class=&quot;headerlink&quot; title=&quot;调用插件&quot;&gt;&lt;/a&gt;调用插件&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;打开js文件，进行调用&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;btn.onclick = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//test plugin&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cordova.exec(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;msg&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//成功的回调函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;alert(msg.data.newsTitles[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;].healthInfoTitle);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//失败的回调函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;TestPlugin&quot;&lt;/span&gt;,&lt;span class=&quot;comment&quot;&gt;//插件名&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;string&quot;&gt;&quot;行业动态&quot;&lt;/span&gt;]);&lt;span class=&quot;comment&quot;&gt;//需要传递至native的参数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;至此一个简易的插件就完成了，后续可根据项目业务需求进行开发。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/5e999b55gw1f8xp95ov6gg208q0fo0ym.gif&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上一章已经将Cordova集成进我们的项目中去了，下面我们创建插件来扩展使用场景。&lt;/p&gt;
+&lt;h2 id=&quot;创建Plugin插件&quot;&gt;&lt;a href=&quot;#创建Plugin插件&quot; class=&quot;headerlink&quot; title=&quot;创建Plugin插件&quot;&gt;&lt;/a&gt;创建Plugi
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://www.xayoung.cn/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://www.xayoung.cn/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hybrid App（一）：Cordova集成</title>
+    <link href="http://www.xayoung.cn/2016/09/03/Hybrid%20App%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9ACordova%E9%9B%86%E6%88%90/"/>
+    <id>http://www.xayoung.cn/2016/09/03/Hybrid App（一）：Cordova集成/</id>
+    <published>2016-09-03T06:50:44.000Z</published>
+    <updated>2016-10-19T11:47:04.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;项目技术预研Hybrid相关技术，查阅资料实践后记录下Cordova集成的过程。&lt;/p&gt;
+&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;Cordova: &lt;a href=&quot;http://cordova.apache.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cordova.apache.org/&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Apache Cordova is an open-source mobile development framework. It allows you to use standard web technologies such as HTML5, CSS3, and JavaScript for cross-platform development, avoiding each mobile platforms’ native development language. Applications execute within wrappers targeted to each platform, and rely on standards-compliant API bindings to access each device’s sensors, data, and network status.&lt;br&gt;Use Apache Cordova if you are: a mobile developer interested in mixing native application components with aWebView(special browser window) that can access device-level APIs, or if you want to develop a plugin interface between native and WebView components.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;大意：Cordova 是开源的移动开发框架。可以使用标准的WEB技术进行跨平台的开发，避免了不同移动平台不同的开发语言重复边写。把能访问设备级 API 的 WebView 集成到 Native 应用中，或通过开发接口插件实现 navtive 和 WebView 组件之间的交互。在启用Cordova的WebView中，为应用提供了完整的用户接口。在某些平台中也可以作为一个嵌入在本地native应用的组件。&lt;/p&gt;
+&lt;h2 id=&quot;环境-amp-创建&quot;&gt;&lt;a href=&quot;#环境-amp-创建&quot; class=&quot;headerlink&quot; title=&quot;环境&amp;amp;创建&quot;&gt;&lt;/a&gt;环境&amp;amp;创建&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;安装Node.js &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://nodejs.org/en/download/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://nodejs.org/en/download/&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;终端输入如下命令 &lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$  sudo npm install –g cordova&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;建立cordova项目&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$  cd Desktop/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$  cordova create CordovaDemo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;加入iOS项目&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$  cd CordovaDemo/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$  cordova platform add ios&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Adding ios project...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Creating Cordova project for the iOS platform:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Path: platforms/ios&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Package: io.cordova.hellocordova&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Name: HelloCordova&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;iOS project created with cordova-ios@4.2.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Discovered plugin &amp;quot;cordova-plugin-whitelist&amp;quot; in config.xml. Adding it to the project&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Fetching plugin &amp;quot;cordova-plugin-whitelist@1&amp;quot; via npm&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Installing &amp;quot;cordova-plugin-whitelist&amp;quot; for ios&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;显示已经安装的平台项目以及可安装的平台&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$  cordova  platform ls   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Installed platforms:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ios 4.2.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Available platforms: &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;amazon-fireos ~3.6.3 (deprecated)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;android ~5.2.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;blackberry10 ~3.8.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;browser ~4.1.0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;firefoxos ~3.6.3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;osx ~4.0.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;webos ~3.7.0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;build iOS项目&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ cordova build ios&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Building project: /Users/xjy/Desktop/test/Demo/platforms/ios/HelloCordova.xcodeproj&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Configuration: Debug&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Platform: emulator&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Build settings from command line:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;......&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Xcode 打开项目运行&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/965192-6f989b735372c194.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;已有的Native项目中加入Cordova&quot;&gt;&lt;a href=&quot;#已有的Native项目中加入Cordova&quot; class=&quot;headerlink&quot; title=&quot;已有的Native项目中加入Cordova&quot;&gt;&lt;/a&gt;已有的Native项目中加入Cordova&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;拷贝Cordova相关文件（路径：cordovaDemo/platforms/ios）到House目录下，拷贝后目录结构如下&lt;br&gt;-&lt;img src=&quot;http://ww1.sinaimg.cn/large/5e999b55gw1f8xm8x36y5j20bc0aeaau.jpg&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;CordovaLib.xcodeproj添加到House工程中，右键选择Add Files To House&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;添加www目录到工程中，记得是勾选Create folder references&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;config.xml添加到Demo工程中，右键选择Add Files To Demo(路径：cordovaDemo/platforms/ios/CordovaDemo/config.xml )&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Build Settings-&amp;gt;Other Links, 设置-Objc -all_load&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Build Phases-&amp;gt;Target Dependencies添加CordovaLib&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Link Binary With Librarys添加libCordova.a, MobileCoreServices,AssetsLibrary&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;command + B编译通过&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;www文件夹放入对应的文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;调用CDVViewController&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#import &amp;lt;Cordova/CDVViewController.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//action&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;CDVViewController* vc = [CDVViewController new];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;vc.hidesBottomBarWhenPushed = YES;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[self.navigationController pushViewController:vc animated:YES];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;下一章记录一下插件开发的相关流程&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;项目技术预研Hybrid相关技术，查阅资料实践后记录下Cordova集成的过程。&lt;/p&gt;
+&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://www.xayoung.cn/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://www.xayoung.cn/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>LoveqSwift（二）：个人项目《一些事一些情》iOS客户端 简介 &amp; BUG &amp; 建议</title>
@@ -93,9 +210,9 @@
     
       <category term="Swift" scheme="http://www.xayoung.cn/tags/Swift/"/>
     
-      <category term="iOS" scheme="http://www.xayoung.cn/tags/iOS/"/>
-    
       <category term="Python" scheme="http://www.xayoung.cn/tags/Python/"/>
+    
+      <category term="iOS" scheme="http://www.xayoung.cn/tags/iOS/"/>
     
   </entry>
   
@@ -587,34 +704,6 @@
       <category term="Kindle" scheme="http://www.xayoung.cn/tags/Kindle/"/>
     
       <category term="Read" scheme="http://www.xayoung.cn/tags/Read/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UINavigationController在pushViewController时出现的卡顿问题</title>
-    <link href="http://www.xayoung.cn/2015/10/20/UINavigationController%E5%9C%A8pushViewController%E6%97%B6%E5%87%BA%E7%8E%B0%E7%9A%84%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.xayoung.cn/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/</id>
-    <published>2015-10-20T12:54:29.000Z</published>
-    <updated>2016-03-31T13:00:02.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;原因&quot;&gt;&lt;a href=&quot;#原因&quot; class=&quot;headerlink&quot; title=&quot;原因&quot;&gt;&lt;/a&gt;原因&lt;/h2&gt;&lt;p&gt;因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;解决&quot;&gt;&lt;a href=&quot;#解决&quot; class=&quot;headerlink&quot; title=&quot;解决&quot;&gt;&lt;/a&gt;解决&lt;/h2&gt;&lt;p&gt;stroybord创建的控制器，直接设置背景色为白色就解决了。或者在viewdidload中设置&lt;br&gt;&lt;figure class=&quot;highlight objectivec&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view.backgroundColor = [&lt;span class=&quot;built_in&quot;&gt;UIColor&lt;/span&gt; whiteColor];&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现
-    
-    </summary>
-    
-      <category term="iOS" scheme="http://www.xayoung.cn/categories/iOS/"/>
-    
-    
-      <category term="iOS" scheme="http://www.xayoung.cn/tags/iOS/"/>
     
   </entry>
   

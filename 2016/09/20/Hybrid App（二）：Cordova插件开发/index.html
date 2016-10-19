@@ -59,33 +59,28 @@
 
 
 
-<meta name="description" content="问题调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象
-
-
-原因因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。
-
-解决stroybord创建的控制器，">
+<meta name="description" content="上一章已经将Cordova集成进我们的项目中去了，下面我们创建插件来扩展使用场景。
+创建Plugin插件
+新建文件夹Plugins,并添加进项目中
+在Plugins中，commend + N 新建继承CDVPlugin的TestPlugin插件 12345678.h#import &amp;lt;Cordova/CDV.h&amp;gt;@interface TestPlugin : CDVPlugin- (vo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UINavigationController在pushViewController时出现的卡顿问题">
-<meta property="og:url" content="http://www.xayoung.cn/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/index.html">
+<meta property="og:title" content="Hybrid App（二）：Cordova插件开发">
+<meta property="og:url" content="http://www.xayoung.cn/2016/09/20/Hybrid App（二）：Cordova插件开发/index.html">
 <meta property="og:site_name" content="Coder X | 分享coding的乐趣">
-<meta property="og:description" content="问题调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象
-
-
-原因因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。
-
-解决stroybord创建的控制器，">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif">
-<meta property="og:updated_time" content="2016-03-31T13:00:02.000Z">
+<meta property="og:description" content="上一章已经将Cordova集成进我们的项目中去了，下面我们创建插件来扩展使用场景。
+创建Plugin插件
+新建文件夹Plugins,并添加进项目中
+在Plugins中，commend + N 新建继承CDVPlugin的TestPlugin插件 12345678.h#import &amp;lt;Cordova/CDV.h&amp;gt;@interface TestPlugin : CDVPlugin- (vo">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/5e999b55gw1f8xowkt5uij20cy090mxv.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/5e999b55gw1f8xp95ov6gg208q0fo0ym.gif">
+<meta property="og:updated_time" content="2016-10-19T11:46:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UINavigationController在pushViewController时出现的卡顿问题">
-<meta name="twitter:description" content="问题调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象
-
-
-原因因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。
-
-解决stroybord创建的控制器，">
-<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif">
+<meta name="twitter:title" content="Hybrid App（二）：Cordova插件开发">
+<meta name="twitter:description" content="上一章已经将Cordova集成进我们的项目中去了，下面我们创建插件来扩展使用场景。
+创建Plugin插件
+新建文件夹Plugins,并添加进项目中
+在Plugins中，commend + N 新建继承CDVPlugin的TestPlugin插件 12345678.h#import &amp;lt;Cordova/CDV.h&amp;gt;@interface TestPlugin : CDVPlugin- (vo">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/5e999b55gw1f8xowkt5uij20cy090mxv.jpg">
 
 
 
@@ -103,7 +98,7 @@
   };
 </script>
 
-<title> UINavigationController在pushViewController时出现的卡顿问题 | Coder X | 分享coding的乐趣 </title>
+<title> Hybrid App（二）：Cordova插件开发 | Coder X | 分享coding的乐趣 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +268,7 @@
             
             
               
-                UINavigationController在pushViewController时出现的卡顿问题
+                Hybrid App（二）：Cordova插件开发
               
             
           </h1>
@@ -285,8 +280,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-20T20:54:29+08:00" content="2015-10-20">
-              2015-10-20
+            <time itemprop="dateCreated" datetime="2016-09-20T17:50:44+08:00" content="2016-09-20">
+              2016-09-20
             </time>
           </span>
 
@@ -315,8 +310,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/" itemprop="commentsCount"></span>
+                <a href="/2016/09/20/Hybrid App（二）：Cordova插件开发/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/20/Hybrid App（二）：Cordova插件开发/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -326,7 +321,7 @@
 
           
           
-             <span id="/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/" class="leancloud_visitors" data-flag-title="UINavigationController在pushViewController时出现的卡顿问题">
+             <span id="/2016/09/20/Hybrid App（二）：Cordova插件开发/" class="leancloud_visitors" data-flag-title="Hybrid App（二）：Cordova插件开发">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -347,12 +342,24 @@
       
 
       
-        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>调用UINavigationController的pushViewController:animated:执行入栈一个子控制器操作时，会出现推出(即入栈)”卡顿”现象</p>
-<p><img src="http://ww2.sinaimg.cn/large/5e999b55gw1f25zjm7m9kg20ad0ic14v.gif" alt="此处输入图片的描述"></p>
-<hr>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>因为从iOS7开始， UIViewController的根view的背景颜色默认为透明色(即clearColor)，我们看到的”卡顿”其实就是由于透明色重叠后，造成了视觉上的错觉。</p>
-<hr>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>stroybord创建的控制器，直接设置背景色为白色就解决了。或者在viewdidload中设置<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br></pre></td></tr></table></figure></p>
+        <p>上一章已经将Cordova集成进我们的项目中去了，下面我们创建插件来扩展使用场景。</p>
+<h2 id="创建Plugin插件"><a href="#创建Plugin插件" class="headerlink" title="创建Plugin插件"></a>创建Plugin插件</h2><ul>
+<li>新建文件夹Plugins,并添加进项目中<br><img src="http://ww3.sinaimg.cn/large/5e999b55gw1f8xowkt5uij20cy090mxv.jpg" alt="此处输入图片的描述"></li>
+<li>在Plugins中，commend + N 新建继承CDVPlugin的TestPlugin插件 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.h</span><br><span class="line">#import &lt;Cordova/CDV.h&gt;</span><br><span class="line"></span><br><span class="line">@interface TestPlugin : CDVPlugin</span><br><span class="line"></span><br><span class="line">- (void)test:(CDVInvokedUrlCommand*)command;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">.m</span><br><span class="line">#import &quot;TestPlugin.h&quot;</span><br><span class="line">#import &lt;Cordova/CDV.h&gt;</span><br><span class="line"></span><br><span class="line">@implementation TestPlugin&#123;</span><br><span class="line">NetWorkManager *manager;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)test:(CDVInvokedUrlCommand*)command</span><br><span class="line">&#123;</span><br><span class="line">DLog(@&quot;%@&quot;,command.arguments);</span><br><span class="line">manager = [NetWorkManager sharedNetWorkManager];</span><br><span class="line">[self loadNewData:command];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (void) loadNewData:(CDVInvokedUrlCommand*)command</span><br><span class="line">&#123;   //网络请求，将传递过来的第一个参数作为网络请求的参数</span><br><span class="line">[manager networkHealthInfoAll:command.arguments[0] ...</span><br><span class="line"></span><br><span class="line">CDVPluginResult* pluginResult = nil;</span><br><span class="line">//要传递回去的参数，responDict为网络请求回来的数据</span><br><span class="line">NSDictionary * ret = @&#123;@&quot;success&quot;:@&quot;1&quot;,@&quot;message&quot;:@&quot;参数不为空&quot;,@&quot;code&quot;:@(200),@&quot;data&quot;:responDict&#125;;</span><br><span class="line"></span><br><span class="line">pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:ret];</span><br><span class="line"></span><br><span class="line">[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h2 id="写入配置文件"><a href="#写入配置文件" class="headerlink" title="写入配置文件"></a>写入配置文件</h2><ul>
+<li>打开文件夹下的config.xml文件，在widget标签下输入：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;feature name=&quot;TestPlugin&quot;&gt;</span><br><span class="line">&lt;param name=&quot;ios-package&quot; value=&quot;TestPlugin&quot; /&gt;</span><br><span class="line">&lt;/feature&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>此时Cordova可以找到插件，完成JavaScript和Objective C的桥接，现在可以使用JavaScript来调用TestPlugin插件了</p>
+<h2 id="调用插件"><a href="#调用插件" class="headerlink" title="调用插件"></a>调用插件</h2><ul>
+<li>打开js文件，进行调用<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//test plugin</span></span><br><span class="line">cordova.exec(<span class="function"><span class="keyword">function</span>(<span class="params">msg</span>)</span>&#123;</span><br><span class="line"><span class="comment">//成功的回调函数</span></span><br><span class="line">alert(msg.data.newsTitles[<span class="number">0</span>].healthInfoTitle);</span><br><span class="line">&#125;,</span><br><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="comment">//失败的回调函数</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">"TestPlugin"</span>,<span class="comment">//插件名</span></span><br><span class="line"><span class="string">"test"</span>,</span><br><span class="line">[<span class="string">"行业动态"</span>]);<span class="comment">//需要传递至native的参数</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>至此一个简易的插件就完成了，后续可根据项目业务需求进行开发。</p>
+<p><img src="http://ww1.sinaimg.cn/large/5e999b55gw1f8xp95ov6gg208q0fo0ym.gif" alt="此处输入图片的描述"></p>
 
       
     </div>
@@ -376,17 +383,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/22/iOS UITableviewWrapperView偏移问题/" rel="next" title="iOS UITableviewWrapperView偏移问题">
-                <i class="fa fa-chevron-left"></i> iOS UITableviewWrapperView偏移问题
+              <a href="/2016/09/03/Hybrid App（一）：Cordova集成/" rel="next" title="Hybrid App（一）：Cordova集成">
+                <i class="fa fa-chevron-left"></i> Hybrid App（一）：Cordova集成
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/20/Mac上通过部署KindleEar订阅RSS自动推送到Kindle/" rel="prev" title="Mac上通过部署KindleEar订阅RSS自动推送到Kindle">
-                Mac上通过部署KindleEar订阅RSS自动推送到Kindle <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -412,8 +415,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/"
-           data-title="UINavigationController在pushViewController时出现的卡顿问题" data-url="http://www.xayoung.cn/2015/10/20/UINavigationController在pushViewController时出现的卡顿问题/">
+      <div class="ds-thread" data-thread-key="2016/09/20/Hybrid App（二）：Cordova插件开发/"
+           data-title="Hybrid App（二）：Cordova插件开发" data-url="http://www.xayoung.cn/2016/09/20/Hybrid App（二）：Cordova插件开发/">
       </div>
     
   </div>
@@ -458,7 +461,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -534,7 +537,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原因"><span class="nav-number">2.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">3.</span> <span class="nav-text">解决</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Plugin插件"><span class="nav-number">1.</span> <span class="nav-text">创建Plugin插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写入配置文件"><span class="nav-number">2.</span> <span class="nav-text">写入配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用插件"><span class="nav-number">3.</span> <span class="nav-text">调用插件</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
